@@ -1,5 +1,5 @@
-class MovableObject extends DrawableObject{
-    
+class MovableObject extends DrawableObject {
+
     speed = 0.15;
     otherDirection = false;
     speedY = 0;
@@ -19,20 +19,10 @@ class MovableObject extends DrawableObject{
     }
 
     isAboveGround() {
-        return this.y < 245;
-    }
-
-    
-
-    
-
-    drawFrame(ctx) {
-        if (this instanceof Character || this instanceof Chicken || this instanceof Endboss) {
-            ctx.beginPath();
-            ctx.lineWidth = '5';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
+        if (this instanceof ThrowableObject) {
+            return true;
+        } else {
+            return this.y < 245;
         }
     }
 
