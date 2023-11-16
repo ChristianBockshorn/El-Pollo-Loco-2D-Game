@@ -8,6 +8,13 @@ class Chicken extends MovableObject {
         'img/3_enemies_chicken/chicken_normal/1_walk/3_w.png'
     ];
 
+    offset = {
+        right: 5,
+        left: 5,
+        top: 10,
+        bottom: 10,
+    };
+
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png');
 
@@ -21,9 +28,9 @@ class Chicken extends MovableObject {
         setInterval(() => {
             this.moveLeft();
         }, 1000 / 60);//60FPS
-        
 
-        
+
+
         setInterval(() => {
             this.playAnimation(this.Images_Walking);
         }, 250);
