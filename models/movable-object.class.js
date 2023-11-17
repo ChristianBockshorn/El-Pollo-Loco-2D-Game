@@ -12,7 +12,7 @@ class MovableObject extends DrawableObject {
         right: 0,
         bottom: 0
     }
-    CoinsCollected = [];
+   
 
 
 
@@ -69,7 +69,9 @@ class MovableObject extends DrawableObject {
     isDead() {
         return this.energy == 0;
     }
+
     
+
 
     playAnimation(images) {
         let i = this.currentImage % images.length; //let i=7 % 6; => 1,Rest 1

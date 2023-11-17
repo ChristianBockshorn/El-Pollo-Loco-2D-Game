@@ -9,6 +9,7 @@ class World {
     statusBarCoins = new StatusBarCoins();
     statusBarBottle = new StatusBarBottle();
     throwableObjects = [];
+    coinsCollect = 0;
 
 
     constructor(canvas, keyboard) {
@@ -47,22 +48,26 @@ class World {
             }
         });
 
-        this.level.coins.forEach((obj)=>{
-            if(this.character.isColliding(obj)){
-                this.character.hit();
-                this.level.coins.splice(0,1);
-                this.statusBarCoins.setCoins(this.character.coins);
-                console.log('Coins collected', this.character.coins);
+        this.level.coins.forEach((obj, i) => {
+            if (this.character.isColliding(obj)) {
+                this.removeCoinsFromMap(i);
             }
         });
     };
+
+    removeCoinsFromMap(i) {
+        this.level.coins.splice(i, 1);
+        this.coinsCollect += 5;
+        this.statusBarCoins.setCoins(this.coinsCollected);
+        console.log('Coins collected', this.character.coins);
+    }
 
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.ctx.translate(this.camera_x, 0);
-        
+
 
         this.addObjectsToMap(this.level.backgroundObject);
         this.addToMap(this.character);
@@ -79,7 +84,7 @@ class World {
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBarBottle);
         this.ctx.translate(this.camera_x, 0);
-        
+
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.throwableObjects);
