@@ -9,7 +9,7 @@ class StatusBarBottle extends DrawableObject {
 
     ];
 
-    percentage = 100;
+    percentage = 0;
 
     constructor() {
         super(); //Um die Methoden vom übergeordneten Objekt auch noch zu initialisieren
@@ -18,7 +18,7 @@ class StatusBarBottle extends DrawableObject {
         this.y = 80;
         this.width = 170;
         this.height = 50;
-        this.setPercentage(100);
+        this.setPercentage(0);
     }
 
     setPercentage(percentage) {

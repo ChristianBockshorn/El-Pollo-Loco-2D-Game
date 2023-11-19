@@ -18,6 +18,19 @@ const level1 = new Level(
         new Coins(),
         new Coins(),
         new Coins(),
+        new Coins(),
+        new Coins(),
+        new Coins(),
+        new Coins(),
+        new Coins(),
+        new Coins(),
+        new Coins(),
+        new Coins(),
+    ],
+
+    [
+        new Bottles(),
+        new Bottles(),
     ],
     [
         new BackgroundObject('img/5_background/layers/air.png', -719),
@@ -43,9 +56,5 @@ const level1 = new Level(
         new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 718 * 3),
     ],
 
-    [
-        new Coins(),
-        new Coins(),
-    ],
 
 );

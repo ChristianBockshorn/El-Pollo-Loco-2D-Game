@@ -57,9 +57,9 @@ class World {
 
     removeCoinsFromMap(i) {
         this.level.coins.splice(i, 1);
-        this.coinsCollect += 5;
-        this.statusBarCoins.setCoins(this.coinsCollected);
-        console.log('Coins collected', this.character.coins);
+        this.character.isCollectedCoins();
+        this.statusBarCoins.setCoins(this.character.collectedCoins);
+        // console.log('Coins collected', this.character.collected());
     }
 
 
@@ -67,7 +67,6 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.ctx.translate(this.camera_x, 0);
-
 
         this.addObjectsToMap(this.level.backgroundObject);
         this.addToMap(this.character);
@@ -86,6 +85,7 @@ class World {
         this.ctx.translate(this.camera_x, 0);
 
         this.addObjectsToMap(this.level.coins);
+        this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.throwableObjects);
 

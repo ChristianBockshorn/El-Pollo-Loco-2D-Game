@@ -1,11 +1,11 @@
 class StatusBarHealth extends DrawableObject {
     IMAGES_HEALTH = [
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/0.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/20.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/40.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/60.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/80.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png',
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/0.png', // Bild Nr 0
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/20.png',// Bild Nr 1
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/40.png',// Bild Nr 2
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/60.png', // Bild Nr 3
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/80.png',// Bild Nr 4
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png', // Bild Nr 5
     ];
 
     percentage = 100;
@@ -28,7 +28,7 @@ class StatusBarHealth extends DrawableObject {
 
     resolveImageIndex() {
         if (this.percentage == 100) {
-            return 5;
+            return 5;// Bild Nr 5
         } else if (this.percentage > 80) {
             return 4;
         } else if (this.percentage > 60) {
@@ -41,5 +41,13 @@ class StatusBarHealth extends DrawableObject {
             return 0;
         }
 
+    }
+
+    collectCoin() {
+        this.percentage += 10; 
+        if (this.percentage > 100) {
+            this.percentage = 100;
+        }
+        this.setPercentage();
     }
 }

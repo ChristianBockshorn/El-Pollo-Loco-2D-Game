@@ -12,8 +12,7 @@ class MovableObject extends DrawableObject {
         right: 0,
         bottom: 0
     }
-   
-
+    collectedCoins = 0;
 
 
     applyGravity() {
@@ -70,7 +69,9 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
-    
+    isCollectedCoins() {
+        this.collectedCoins += 10;
+    }
 
 
     playAnimation(images) {
