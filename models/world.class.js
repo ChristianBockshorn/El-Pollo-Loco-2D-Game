@@ -10,6 +10,7 @@ class World {
     statusBarBottle = new StatusBarBottle();
     throwableObjects = [];
     coinsCollect = 0;
+    bottlesCollect = 0;
 
 
     constructor(canvas, keyboard) {
@@ -53,6 +54,12 @@ class World {
                 this.removeCoinsFromMap(i);
             }
         });
+
+        this.level.bottles.forEach((obj, b) => {
+            if (this.character.isColliding(obj)) {
+                this.removeBottlesFromMap(b);
+            }
+        });
     };
 
     removeCoinsFromMap(i) {
@@ -60,6 +67,12 @@ class World {
         this.character.isCollectedCoins();
         this.statusBarCoins.setCoins(this.character.collectedCoins);
         // console.log('Coins collected', this.character.collected());
+    }
+
+    removeBottlesFromMap(b) {
+        this.level.bottles.splice(b, 1);
+        this.character.isCollectedBottles();
+        this.statusBarBottle.setBottles(this.character.collectedBottles);
     }
 
 

@@ -13,6 +13,7 @@ class MovableObject extends DrawableObject {
         bottom: 0
     }
     collectedCoins = 0;
+    collectedBottles = 0;
 
 
     applyGravity() {
@@ -71,6 +72,10 @@ class MovableObject extends DrawableObject {
 
     isCollectedCoins() {
         this.collectedCoins += 10;
+    }
+
+    isCollectedBottles() {
+        this.collectedBottles += 10;
     }
 
 
