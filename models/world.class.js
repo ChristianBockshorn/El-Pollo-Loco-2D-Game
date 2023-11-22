@@ -11,7 +11,7 @@ class World {
     throwableObjects = [];
     coinsCollect = 0;
     bottlesCollect = 0;
-    amountOfBottles = [];
+    
 
 
     constructor(canvas, keyboard) {
@@ -35,27 +35,26 @@ class World {
     }
 
     checkthrowObjects() {
-        if (this.keyboard.D) {
+        if (this.keyboard.D && this.bottlesCollect > 0) {
             let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100)
             this.throwableObjects.push(bottle);
-            this.throwBottle();
-            this.statusBarBottle.setBottles(this.amountOfBottles.length);
+            // this.throwBottle();
+            this.character.reduceBottleByThrowing();
+            this.statusBarBottle.setBottles(this.character.bottlesCollect);
+
         }
     };
 
-    throwBottle() {
-        if (this.amountOfBottles.length > 0) {
-            let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100);
-            this.throwableObjects.push(bottle);
+    // throwBottle() {
+    //     if (this.amountOfBottles.length > 0) {
+    //         let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100);
+    //         this.throwableObjects.push(bottle);
 
-            // Reduzieren der Flaschen
-            this.amountOfBottles.pop();
+    //         // // Aktualisieren der Anzeige 
+    //         // this.statusBarBottle.setBottles(this.amountOfBottles.length);
+    //     }
 
-            // Aktualisieren der Anzeige 
-            
-        }
-
-    }
+    // }
 
     checkCollisions() {
         this.level.enemies.forEach((obj) => {
@@ -92,14 +91,15 @@ class World {
         this.level.bottles.splice(b, 1);
         this.character.isCollectedBottles();
         // if (this.amountOfBottles.length < 5) {
-        this.amountOfBottles.push(b);
-        this.amountOfBottles.length;
+        // this.amountOfBottles.push(b);
+        // this.amountOfBottles.length;
 
-        console.log('bottles length', this.amountOfBottles.length);
+        // console.log('bottles length', this.amountOfBottles.length);
         // this.amountOfBottles.splice(b, 1);
 
         // }
-        this.statusBarBottle.setBottles(this.character.collectedBottles);
+        // this.statusBarBottle.setBottles(this.character.collectedBottles);
+        this.statusBarBottle.setBottles(this.character.bottlesCollect)
     }
 
 

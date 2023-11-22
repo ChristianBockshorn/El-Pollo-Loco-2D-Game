@@ -75,14 +75,18 @@ class MovableObject extends DrawableObject {
     }
 
     isCollectedBottles() {
-        this.collectedBottles += 10;
+        this.collectedBottles++;
+
     }
 
-    throwBottle(){
-        this.throwBottle();
-        this.amountOfBottles.splice(1, 1);
+    reduceBottleByThrowing() {
+        this.collectedBottles--;
+        if (this.collectedBottles < 0) {
+            this.collectedBottles = 0;
+            
+        }
+        console.log('geworfen', this.collectedBottles);
     }
-
 
     playAnimation(images) {
         let i = this.currentImage % images.length; //let i=7 % 6; => 1,Rest 1
