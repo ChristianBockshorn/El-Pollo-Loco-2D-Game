@@ -78,6 +78,11 @@ class MovableObject extends DrawableObject {
         this.collectedBottles += 10;
     }
 
+    throwBottle(){
+        this.throwBottle();
+        this.amountOfBottles.splice(1, 1);
+    }
+
 
     playAnimation(images) {
         let i = this.currentImage % images.length; //let i=7 % 6; => 1,Rest 1

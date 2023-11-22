@@ -29,4 +29,12 @@ class Bottles extends MovableObject{
             this.playAnimation(this.IMAGES_BOTTLE);
         }, 1000);
     }
+
+    // collect(co) {
+    //     const index = this.world.level.bottles.indexOf(co);
+    //     if (index > -1) {
+    //       this.world.level.bottles.splice(index, 1);
+    //     }
+        
+    //   }
 }

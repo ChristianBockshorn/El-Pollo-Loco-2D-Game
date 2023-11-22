@@ -11,6 +11,7 @@ class World {
     throwableObjects = [];
     coinsCollect = 0;
     bottlesCollect = 0;
+    amountOfBottles = [];
 
 
     constructor(canvas, keyboard) {
@@ -37,15 +38,31 @@ class World {
         if (this.keyboard.D) {
             let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100)
             this.throwableObjects.push(bottle);
+            this.throwBottle();
+            this.statusBarBottle.setBottles(this.amountOfBottles.length);
         }
     };
+
+    throwBottle() {
+        if (this.amountOfBottles.length > 0) {
+            let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100);
+            this.throwableObjects.push(bottle);
+
+            // Reduzieren der Flaschen
+            this.amountOfBottles.pop();
+
+            // Aktualisieren der Anzeige 
+            
+        }
+
+    }
 
     checkCollisions() {
         this.level.enemies.forEach((obj) => {
             if (this.character.isColliding(obj)) {
                 this.character.hit();
                 this.statusBarHealth.setPercentage(this.character.energy);
-                console.log('Collision with Character', this.character.energy);
+                // console.log('Collision with Character', this.character.energy);
             }
         });
 
@@ -58,8 +75,10 @@ class World {
         this.level.bottles.forEach((obj, b) => {
             if (this.character.isColliding(obj)) {
                 this.removeBottlesFromMap(b);
+                this.bottlesCollect++;
             }
         });
+
     };
 
     removeCoinsFromMap(i) {
@@ -72,6 +91,14 @@ class World {
     removeBottlesFromMap(b) {
         this.level.bottles.splice(b, 1);
         this.character.isCollectedBottles();
+        // if (this.amountOfBottles.length < 5) {
+        this.amountOfBottles.push(b);
+        this.amountOfBottles.length;
+
+        console.log('bottles length', this.amountOfBottles.length);
+        // this.amountOfBottles.splice(b, 1);
+
+        // }
         this.statusBarBottle.setBottles(this.character.collectedBottles);
     }
 

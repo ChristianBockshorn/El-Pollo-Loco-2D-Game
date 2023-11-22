@@ -24,7 +24,6 @@ class ThrowableObject extends MovableObject {
         this.height = 60;
         this.width = 50;
         this.throw();
-        this.splash();
         this.loadImages(this.IMAGES_BOTTLE);
         this.loadImages(this.IMAGES_BOTTLE_SPLASH);
         this.animate();
@@ -35,9 +34,7 @@ class ThrowableObject extends MovableObject {
             this.playAnimation(this.IMAGES_BOTTLE);
         }, 150);
 
-        setInterval(() => {
-            this.playAnimation(this.IMAGES_BOTTLE_SPLASH);
-        }, 700);
+
     }
 
     throw() {
@@ -46,9 +43,8 @@ class ThrowableObject extends MovableObject {
         setInterval(() => {
             this.x += 10;
         }, 25);
+        
     }
 
-    splash() {
-        splashOnTheGround
-    }
+    
 }
