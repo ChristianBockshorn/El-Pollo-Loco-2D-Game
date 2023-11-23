@@ -27,6 +27,7 @@ class ThrowableObject extends MovableObject {
         this.loadImages(this.IMAGES_BOTTLE);
         this.loadImages(this.IMAGES_BOTTLE_SPLASH);
         this.animate();
+        
     }
 
     animate() {
@@ -45,6 +46,6 @@ class ThrowableObject extends MovableObject {
         }, 25);
         
     }
-
     
+
 }

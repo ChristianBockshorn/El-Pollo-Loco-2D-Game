@@ -9,7 +9,7 @@ class StatusBarBottle extends DrawableObject {
 
     ];
 
-    bottlesCollect = 0;
+    collected = 0;
 
     constructor() {
         super(); //Um die Methoden vom übergeordneten Objekt auch noch zu initialisieren
@@ -18,25 +18,25 @@ class StatusBarBottle extends DrawableObject {
         this.y = 80;
         this.width = 170;
         this.height = 50;
-        this.setBottles(0);
+        this.setCollected(0);
     }
 
-    setBottles(bottlesCollect) {
-        this.bottlesCollect = bottlesCollect; //=> 0...5
+    setCollected(collected) {
+        this.collected = collected; //=> 0...5
         let path = this.IMAGES_BOTTLE[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
     resolveImageIndex() {
-        if (this.bottlesCollect >= 10) {
+        if (this.collected >= 10) {
             return 5;
-        } else if (this.bottlesCollect > 8) {
+        } else if (this.collected > 8) {
             return 4;
-        } else if (this.bottlesCollect > 6) {
+        } else if (this.collected > 6) {
             return 3;
-        } else if (this.bottlesCollect > 4) {
+        } else if (this.collected > 4) {
             return 2;
-        } else if (this.bottlesCollect > 2) {
+        } else if (this.collected > 2) {
             return 1;
         } else {
             return 0;

@@ -25,6 +25,7 @@ class MovableObject extends DrawableObject {
         }, 1000 / 25);
     }
 
+
     isAboveGround() {
         if (this instanceof ThrowableObject) {
             return true;
@@ -32,6 +33,7 @@ class MovableObject extends DrawableObject {
             return this.y < 245;
         }
     }
+
 
     isColliding(mo) {
         return (
@@ -51,6 +53,7 @@ class MovableObject extends DrawableObject {
         //     obj.onCollisionCourse; // Optional: hiermit könnten wir schauen, ob ein Objekt sich in die richtige Richtung bewegt. Nur dann kollidieren wir. Nützlich bei Gegenständen, auf denen man stehen kann.
     }
 
+
     hit() {
         this.energy -= 5;
         if (this.energy < 0) {
@@ -60,33 +63,23 @@ class MovableObject extends DrawableObject {
         }
     }
 
+
     isHurt() {
         let timepassed = new Date().getTime() - this.lastHit; //Differenz in ms
         timepassed = timepassed / 1000; //Differenz in s
         return timepassed < 1;
     }
 
+
     isDead() {
         return this.energy == 0;
     }
 
+
     isCollectedCoins() {
         this.collectedCoins += 10;
     }
-
-    isCollectedBottles() {
-        this.collectedBottles++;
-
-    }
-
-    reduceBottleByThrowing() {
-        this.collectedBottles--;
-        if (this.collectedBottles < 0) {
-            this.collectedBottles = 0;
-            
-        }
-        console.log('geworfen', this.collectedBottles);
-    }
+    
 
     playAnimation(images) {
         let i = this.currentImage % images.length; //let i=7 % 6; => 1,Rest 1
@@ -101,10 +94,12 @@ class MovableObject extends DrawableObject {
         this.x += this.speed;
     }
 
+
     moveLeft() {
         this.x -= this.speed;
     }
 
+    
     jump() {
         this.speedY = 30;
     }
