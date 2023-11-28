@@ -31,12 +31,25 @@
 <body onload="init()">
     <h1>El Pollo Loco</h1>
 
-    <div class="start-screen"></div>
+    <div class="startContainer" id="forFullscreen">
+        <div class="start-screen" id="startScreen">
+            <button class="start-btn" id="start-btn" onclick="startGame()">Start</button>
+            <button class="start-btn" id="openFullscreenBtn" onclick="fullscreen()">Fullscreen</button>
+            <button class="start-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Fullscreen close</button>
+            <button class="start-btn" id="controlBtn" onclick="controls()">Controls</button>
+            <button class="start-btn" id="audioBtn" onclick="audio()">Audio</button>
 
-    <canvas id="canvas" width="720" height="480"></canvas>
-    
+        </div>
+        <div>
+            <canvas id="canvas" width="720" height="480"></canvas>
+        </div>
+
+
+    </div>
+
+
+
+
 </body>
 
 </html>
-
-<button></button>

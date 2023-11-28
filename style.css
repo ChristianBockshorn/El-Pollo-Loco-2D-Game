@@ -18,11 +18,15 @@ body {
 
 }
 
+.startContainer {
+    position: relative;
+}
+
 .start-screen {
     display: flex;
     justify-content: center;
     /* align-items: flex-start; */
-    background-color: black; 
+    background-color: black;
     background-image: url(img/9_intro_outro_screens/start/startscreen_1.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -32,15 +36,42 @@ body {
     position: absolute;
     width: 720px;
     height: 480px;
-   
+
+}
+
+
+
+
+
+.start-btn {
+    background-color: #04AA6D;
+    /* Green */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 122px;
+    height: 54px;
+    border-radius: 20px;
+    border: 2px solid black
+}
+
+.start-btn:hover {
+    background-color: #04aa6d69;
 }
 
 canvas {
     background-color: black;
     border-radius: 20px;
     border: 5px solid #cf6b00b4;
-    
+
     box-shadow: 3px -1px 14px 6px #8f5f5c;
+}
+
+.d-none {
+    display: none;
 }
 
 h1 {
@@ -49,6 +80,8 @@ h1 {
     text-decoration: underline 5px;
 
 }
+
+
 
 @media screen and (max-width: 720px) {
     canvas {

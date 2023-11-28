@@ -1,11 +1,48 @@
 let canvas;
 let world;
+let startButton;
 let keyboard = new Keyboard();
 
 
 function init() {
     canvas = document.getElementById('canvas');
+    let keyboard = new Keyboard();
     world = new World(canvas, keyboard);
+}
+
+function startGame() {
+    startScreen = document.getElementById('startScreen').classList.add('d-none');
+}
+
+function fullscreen() {
+    let fullscreen = document.getElementById('startScreen');
+    openFullscreen(fullscreen);
+}
+
+/* Open fullscreen */
+function openFullscreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) { /* Safari */
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { /* IE11 */
+        element.msRequestFullscreen();
+    }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+    }
+}
+
+function controls(){
+
 }
 
 
@@ -60,3 +97,5 @@ window.addEventListener("keyup", (e) => {
         keyboard.D = false;
     }
 });
+
+
