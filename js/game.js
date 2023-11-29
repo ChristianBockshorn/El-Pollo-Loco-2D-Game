@@ -6,13 +6,17 @@ let keyboard = new Keyboard();
 
 function init() {
     canvas = document.getElementById('canvas');
-    let keyboard = new Keyboard();
     world = new World(canvas, keyboard);
+
 }
 
+
 function startGame() {
+    this.movingChicken();
     startScreen = document.getElementById('startScreen').classList.add('d-none');
 }
+
+
 
 function fullscreen() {
     let fullscreen = document.getElementById('startScreen');
@@ -41,10 +45,17 @@ function closeFullscreen() {
     }
 }
 
-function controls(){
-
+function controls() {
+    document.getElementById('controls-bg').classList.remove('d-none');
 }
 
+function closeControls() {
+    document.getElementById('controls-bg').classList.add('d-none');
+}
+
+function doNotClosePopup(event) {
+    event.stopPropagation();
+}
 
 window.addEventListener("keydown", (e) => {
     if (e.keyCode == 37) {

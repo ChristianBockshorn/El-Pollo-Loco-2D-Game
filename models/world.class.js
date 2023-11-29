@@ -21,6 +21,7 @@ class World {
         this.draw();
         this.setWorld();
         this.run();
+
     }
 
 
@@ -177,4 +178,15 @@ class World {
         mo.x = mo.x * -1;
         this.ctx.restore();
     }
+
+
+    movingChicken() {
+        let enemiesArray = level1.enemies;
+        for (let i = 0; i < enemiesArray.length; i++) {
+            let chicken = enemiesArray[i];
+            this.moving(chicken);//Diese soll nun zur Klasse Chicken führen
+        }
+    }
+
+
 }

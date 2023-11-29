@@ -7,6 +7,10 @@
     <title>El Pollo Loco</title>
     <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <script src="models/drawable-object.class.js"></script>
     <script src="models/movable-object.class.js"></script>
     <script src="models/chicken.class.js"></script>
@@ -30,25 +34,59 @@
 
 <body onload="init()">
     <h1>El Pollo Loco</h1>
-
     <div class="startContainer" id="forFullscreen">
+        <div class="controls-bg d-none" id="controls-bg" onclick="closeControls()">
+            <div class="controls-container">
+                <div class="controls-container-left" onclick="doNotClosePopup(event)">
+                    <button class="start-btn" id="openFullscreenBtn" onclick="fullscreen()">Fullscreen</button>
+                    <button class="start-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Fullscreen
+                        close</button>
+
+                </div>
+                <div class="controls-container-right" onclick="doNotClosePopup(event)">
+                    <button class="start-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Fullscreen
+                        close</button>
+                    <button class="start-btn" id="controlBtn" onclick="controls()">Controls</button>
+                </div>
+
+
+            </div>
+        </div>
+
         <div class="start-screen" id="startScreen">
-            <button class="start-btn" id="start-btn" onclick="startGame()">Start</button>
-            <button class="start-btn" id="openFullscreenBtn" onclick="fullscreen()">Fullscreen</button>
-            <button class="start-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Fullscreen close</button>
-            <button class="start-btn" id="controlBtn" onclick="controls()">Controls</button>
-            <button class="start-btn" id="audioBtn" onclick="audio()">Audio</button>
+            <div class="start-screen-buttons">
+                <div class="tooltip">
+                    <span class="tooltiptext">Play</span>
+                    <span class="material-symbols-outlined" class="start-btn" id="start-btn"
+                        onclick="startGame()">play_circle</span>
+                </div>
+                <div class="tooltip">
+                    <span class="tooltiptext">Fullscreen</span>
+                    <span class="material-symbols-outlined " id="openFullscreenBtn"
+                        onclick="fullscreen()">Fullscreen</span>
+                </div>
+                <div class="tooltip">
+                    <span class="tooltiptext">Close Fullscreen</span>
+                    <span class="material-symbols-outlined" class="start-btn" id="closeFullscreenBtn"
+                        onclick="closeFullscreen()">close_fullscreen</span>
+                </div>
+                <div class="tooltip">
+                    <span class="tooltiptext">Controls</span>
+                    <span class="material-symbols-outlined" class="start-btn" id="controlBtn"
+                        onclick="controls()">gamepad</span>
+                </div>
+                <div class="tooltip">
+                    <span class="tooltiptext">Mute</span>
+                    <span class="material-symbols-outlined" class="start-btn" id="audioBtn"
+                        onclick="audio()">volume_off</span>
+                </div>
+
+            </div>
 
         </div>
-        <div>
-            <canvas id="canvas" width="720" height="480"></canvas>
-        </div>
 
-
+        <canvas id="canvas" width="720" height="480"></canvas>
     </div>
-
-
-
 
 </body>
 
