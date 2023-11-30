@@ -12,7 +12,7 @@ function init() {
 
 
 function startGame() {
-    this.movingChicken();
+    world.movingChicken();
     startScreen = document.getElementById('startScreen').classList.add('d-none');
 }
 

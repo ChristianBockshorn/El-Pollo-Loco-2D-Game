@@ -31,9 +31,9 @@ class Chicken extends MovableObject {
     }
 
 
-    moving(chicken){
+    moving(){
         setInterval(() => {
-            chicken.moveLeft();
+            this.moveLeft();
         }, 1000 / 60);//60FPS
     }
 }

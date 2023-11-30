@@ -132,6 +132,7 @@ class World {
         this.ctx.translate(this.camera_x, 0);
 
         this.addObjectsToMap(this.level.coins);
+        this.addObjectsToMap(this.level.endboss);
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.throwableObjects);
@@ -181,11 +182,9 @@ class World {
 
 
     movingChicken() {
-        let enemiesArray = level1.enemies;
-        for (let i = 0; i < enemiesArray.length; i++) {
-            let chicken = enemiesArray[i];
-            this.moving(chicken);//Diese soll nun zur Klasse Chicken führen
-        }
+        this.level.enemies.forEach(chicken=>{
+            chicken.moving();
+        })
     }
 
 
