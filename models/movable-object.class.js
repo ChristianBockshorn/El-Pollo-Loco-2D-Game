@@ -5,13 +5,14 @@ class MovableObject extends DrawableObject {
     speedY = 0;
     acceleration = 2.5;
     energy = 100;
+    chickenEnergy = 100;
     lastHit = 0;
     offset = {
         top: 0,
         left: 0,
         right: 0,
         bottom: 0
-    }
+    };
     collectedCoins = 0;
     collectedBottles = 0;
 
@@ -75,11 +76,14 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
+    kill() {
+        this.energy = 0;
+    }
 
     isCollectedCoins() {
         this.collectedCoins += 10;
     }
-    
+
 
     playAnimation(images) {
         let i = this.currentImage % images.length; //let i=7 % 6; => 1,Rest 1
@@ -99,7 +103,7 @@ class MovableObject extends DrawableObject {
         this.x -= this.speed;
     }
 
-    
+
     jump() {
         this.speedY = 30;
     }

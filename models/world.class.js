@@ -60,12 +60,15 @@ class World {
         this.checkCollisionsBottle();
     };
 
-
     checkCollisionsEnemies() {
         this.level.enemies.forEach((obj) => {
-            if (this.character.isColliding(obj)) {
-                this.character.hit();
-                this.statusBarHealth.setPercentage(this.character.energy);
+            if (this.character.isColliding(obj) && !obj.isDead()) {
+                if (this.character.isAboveGround() && !this.character.isHurt()) {
+                    obj.kill();
+                } else {
+                    this.character.hit();
+                    this.statusBarHealth.setPercentage(this.character.energy);
+                }
             }
         });
     }
@@ -182,7 +185,7 @@ class World {
 
 
     movingChicken() {
-        this.level.enemies.forEach(chicken=>{
+        this.level.enemies.forEach(chicken => {
             chicken.moving();
         })
     }
