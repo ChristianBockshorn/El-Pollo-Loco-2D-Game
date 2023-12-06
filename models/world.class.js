@@ -65,6 +65,8 @@ class World {
             if (this.character.isColliding(obj) && !obj.isDead()) {
                 if (this.character.isAboveGround() && !this.character.isHurt()) {
                     obj.kill();
+                    this.checkIfEnemyIsDead(obj);
+                    console.log('chicken is killed!');
                 } else {
                     this.character.hit();
                     this.statusBarHealth.setPercentage(this.character.energy);
@@ -72,6 +74,20 @@ class World {
             }
         });
     }
+
+    checkIfEnemyIsDead(obj) {
+        if (obj.energy === 0) {
+            this.removeEnemyfromMap(obj);
+        }
+    }
+
+    removeEnemyfromMap(obj) {
+        setTimeout(() => {
+            obj.stopMoving();
+            this.level.enemies.splice(this.level.enemies.indexOf(obj), 1);
+        }, 1000);
+    }
+
 
 
     checkCollisionsCoins() {

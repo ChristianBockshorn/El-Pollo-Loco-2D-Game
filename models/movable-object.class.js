@@ -1,5 +1,5 @@
 class MovableObject extends DrawableObject {
-
+    stop = 0;
     speed = 0.15;
     otherDirection = false;
     speedY = 0;
@@ -101,6 +101,10 @@ class MovableObject extends DrawableObject {
 
     moveLeft() {
         this.x -= this.speed;
+    }
+
+    stopMoving() {
+        this.x += this.stop;
     }
 
 

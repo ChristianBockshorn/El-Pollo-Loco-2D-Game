@@ -49,6 +49,29 @@ class Character extends MovableObject {
         'img/2_character_pepe/4_hurt/H-43.png',
     ];
 
+    Images_Idle = [
+        'img/2_character_pepe/1_idle/idle/I-1.png',
+        'img/2_character_pepe/1_idle/idle/I-2.png',
+        'img/2_character_pepe/1_idle/idle/I-3.png',
+        'img/2_character_pepe/1_idle/idle/I-4.png',
+        'img/2_character_pepe/1_idle/idle/I-5.png',
+        'img/2_character_pepe/1_idle/idle/I-6.png',
+        'img/2_character_pepe/1_idle/idle/I-7.png',
+        'img/2_character_pepe/1_idle/idle/I-8.png',
+        'img/2_character_pepe/1_idle/idle/I-9.png',
+        'img/2_character_pepe/1_idle/idle/I-10.png',
+        "img/2_character_pepe/1_idle/long_idle/I-11.png",
+        "img/2_character_pepe/1_idle/long_idle/I-12.png",
+        "img/2_character_pepe/1_idle/long_idle/I-13.png",
+        "img/2_character_pepe/1_idle/long_idle/I-14.png",
+        "img/2_character_pepe/1_idle/long_idle/I-15.png",
+        "img/2_character_pepe/1_idle/long_idle/I-16.png",
+        "img/2_character_pepe/1_idle/long_idle/I-17.png",
+        "img/2_character_pepe/1_idle/long_idle/I-18.png",
+        "img/2_character_pepe/1_idle/long_idle/I-19.png",
+        "img/2_character_pepe/1_idle/long_idle/I-20.png",
+    ];
+
 
 
 
@@ -58,6 +81,7 @@ class Character extends MovableObject {
         this.loadImages(this.Images_Jumping);
         this.loadImages(this.Images_Dead);
         this.loadImages(this.Images_Hurt);
+        this.loadImages(this.Images_Idle);
 
 
         this.animate();
@@ -88,6 +112,11 @@ class Character extends MovableObject {
 
         }, 1000 / 60);
 
+        setInterval(() => {
+            if (this.idle()) {
+                this.playAnimation(this.Images_Idle);
+            }
+        }, 500);
 
         setInterval(() => {
             if (this.isDead()) {
@@ -103,10 +132,23 @@ class Character extends MovableObject {
                 }
             }
         }, 100);
+
+
     }
 
     jump() {
         this.speedY = 30;
+    }
+
+    idle() {
+        return (
+            this.world.keyboard.RIGHT == false &&
+            this.world.keyboard.LEFT == false &&
+            this.world.keyboard.SPACE == false &&
+            this.world.keyboard.D == false &&
+            this.world.keyboard.UP == false &&
+            this.world.keyboard.DOWN == false
+        );
     }
 
 
