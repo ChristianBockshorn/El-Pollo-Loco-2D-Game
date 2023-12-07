@@ -80,6 +80,18 @@ class MovableObject extends DrawableObject {
         this.energy = 0;
     }
 
+    seeCharacterAlert() {
+        return (
+            world.character.x >= 1450 && world.character.x < 1475
+        );
+    }
+
+    seeCharacterAttack(){
+        return (
+            world.character.x >= 1475
+        );
+    }
+
     isCollectedCoins() {
         this.collectedCoins += 10;
     }

@@ -6,6 +6,7 @@ class World {
     keyboard;
     camera_x = 0;
     statusBarHealth = new StatusBarHealth();
+    statusBarEndboss = new StatusBarEndboss();
     statusBarCoins = new StatusBarCoins();
     statusBarBottle = new StatusBarBottle();
     throwableObjects = [];
@@ -128,6 +129,8 @@ class World {
         this.statusBarCoins.setCoins(this.character.collectedCoins);
     }
 
+    
+
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -138,8 +141,16 @@ class World {
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.clouds);
 
+        
+
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBarHealth);
+        this.ctx.translate(this.camera_x, 0);
+
+        this.ctx.translate(-this.camera_x, 0);
+        if (this.status()) {
+            this.addToMap(this.statusBarEndboss);
+        }
         this.ctx.translate(this.camera_x, 0);
 
         this.ctx.translate(-this.camera_x, 0);
@@ -162,6 +173,12 @@ class World {
         requestAnimationFrame(function () {
             self.draw();
         })
+    }
+
+    status(){
+        return(
+            this.character.x >= 1450
+        );
     }
 
 
@@ -205,6 +222,4 @@ class World {
             chicken.moving();
         })
     }
-
-
 }
