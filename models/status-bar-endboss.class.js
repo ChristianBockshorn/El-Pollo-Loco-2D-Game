@@ -8,16 +8,10 @@ class StatusBarEndboss extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/orange/100.png', // Bild Nr 5
     ];
 
-    IMAGES_ICON_HEALTH_ENDBOSS = [
-        'img/7_statusbars/3_icons/icon_health_endboss.png'
-    ];
-
-
     percentage = 100;
 
     constructor() {
         super(); //Um die Methoden vom übergeordneten Objekt auch noch zu initialisieren
-        this.loadImages(this.IMAGES_ICON_HEALTH_ENDBOSS);
         this.loadImages(this.IMAGES_ENDBOSS_HEALTH);
 
         this.x = 500;

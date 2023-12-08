@@ -1,5 +1,6 @@
 class World {
     character = new Character();
+    endboss = new Endboss();
     level = level1;
     ctx;
     canvas;
@@ -12,6 +13,7 @@ class World {
     throwableObjects = [];
     coinsCollect = 0;
     collectedBottles = 0;
+    
 
 
 
@@ -59,6 +61,7 @@ class World {
         this.checkCollisionsEnemies();
         this.checkCollisionsCoins();
         this.checkCollisionsBottle();
+        this.checkCollisionsBottleWithEndboss();
     };
 
     checkCollisionsEnemies() {
@@ -129,7 +132,33 @@ class World {
         this.statusBarCoins.setCoins(this.character.collectedCoins);
     }
 
-    
+    checkCollisionsBottleWithEndboss() {
+        setInterval(() => {
+            this.throwableObjects.forEach((bottle) => {
+                this.level.endboss.forEach((endboss) => {
+
+                    if (bottle.isColliding(endboss)) {
+                        this.endboss.hurtEndboss();
+                        // endboss.hit();
+
+                        // this.level.endboss[0].hit();
+                        
+                        // console.log(this.level.endboss[0].hit())
+
+                        // endboss.isHurt();
+                        // console.log('energy',energy)
+                        // this.level.endboss[0].isHurt();
+                        // console.log('collision with endboss energy', this.level.endboss[0].endbossEnergy)
+
+
+                    }
+                });
+            });
+        }, 200);
+    }
+
+
+
 
 
     draw() {
@@ -141,14 +170,14 @@ class World {
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.clouds);
 
-        
+
 
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBarHealth);
         this.ctx.translate(this.camera_x, 0);
 
         this.ctx.translate(-this.camera_x, 0);
-        if (this.status()) {
+        if (this.seeEndboss()) {
             this.addToMap(this.statusBarEndboss);
         }
         this.ctx.translate(this.camera_x, 0);
@@ -175,8 +204,8 @@ class World {
         })
     }
 
-    status(){
-        return(
+    seeEndboss() {
+        return (
             this.character.x >= 1450
         );
     }

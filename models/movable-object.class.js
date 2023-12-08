@@ -6,6 +6,7 @@ class MovableObject extends DrawableObject {
     acceleration = 2.5;
     energy = 100;
     chickenEnergy = 100;
+    endbossEnergy = 100;
     lastHit = 0;
     offset = {
         top: 0,
@@ -60,17 +61,25 @@ class MovableObject extends DrawableObject {
         if (this.energy < 0) {
             this.energy = 0;
         } else {
-            this.lastHit = new Date().getTime();
+            this.lastHit = new Date().getTime(); //Zeitpunkt speichern
         }
     }
 
-
+//isHurt für true oder false wird returnt
     isHurt() {
         let timepassed = new Date().getTime() - this.lastHit; //Differenz in ms
         timepassed = timepassed / 1000; //Differenz in s
-        return timepassed < 1;
+        return timepassed < 1.5;
     }
 
+    hurtEndboss(){
+        this.energy -= 20;
+        if (this.energy < 0) {
+            this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime();
+        }
+    }
 
     isDead() {
         return this.energy == 0;
