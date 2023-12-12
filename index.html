@@ -86,6 +86,21 @@
 
         </div>
 
+        <div class="end-screen" id="endScreen" onclick="closeEndScreen()">
+            <div class="end-screen-container-btn" onclick="doNotClosePopup(event)">
+                <div class="tooltip">
+                    <span class="tooltiptext">Play</span>
+                    <span class="material-symbols-outlined" class="start-btn" id="start-btn"
+                        onclick="startGame()">play_circle</span>
+                </div>
+                <div class="tooltip">
+                    <span class="tooltiptext">Fullscreen</span>
+                    <span class="material-symbols-outlined " id="openFullscreenBtn"
+                        onclick="fullscreen()">Fullscreen</span>
+                </div>
+            </div>
+        </div>
+
         <canvas id="canvas" width="720" height="480"></canvas>
     </div>
 

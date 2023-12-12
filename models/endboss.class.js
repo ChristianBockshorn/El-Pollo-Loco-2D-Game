@@ -2,8 +2,9 @@ class Endboss extends MovableObject {
     y = 80;
     height = 400;
     width = 230;
-    
-    
+
+    animationEnded = false;
+    deadAnimationLoaded = true;
 
     Images_Walking = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -11,7 +12,7 @@ class Endboss extends MovableObject {
         'img/4_enemie_boss_chicken/1_walk/G3.png',
         'img/4_enemie_boss_chicken/1_walk/G4.png',
     ];
-    
+
     Images_Alert = [
         'img/4_enemie_boss_chicken/2_alert/G5.png',
         'img/4_enemie_boss_chicken/2_alert/G6.png',
@@ -58,24 +59,70 @@ class Endboss extends MovableObject {
 
         this.x = 2000;
         this.animate();
+        
     }
 
+    // animate() {
+    //     setInterval(() => {
+    //         if (this.isDead()) {
+    //             this.playAnimation(this.Images_Dead);
+    //         } else if (this.isHurt()) {
+    //             this.playAnimation(this.Images_Hurt);
+    //         } if (this.seeCharacterAlert()) {
+    //             this.playAnimation(this.Images_Alert);
+    //         } else if (this.seeCharacterAttack()) {
+    //             this.playAnimation(this.Images_Attack);
+    //         }
+    //     }, 200);
+
+    // }
+
     animate() {
-        setInterval(() => {
-            if (this.isDead()) {
-                this.playAnimation(this.Images_Dead);
-            } else if (this.hurtEndboss()) {
-                this.playAnimation(this.Images_Hurt);
-            } if (this.seeCharacterAlert()) {
-                this.playAnimation(this.Images_Alert);
-            } else if (this.seeCharacterAttack()) {
-                this.playAnimation(this.Images_Attack);
+
+        this.endbossInterval = setInterval(() => {
+            if (this.endbossIsDead() && !this.animationEnded) {
+                this.playDeadAnimation();
+            } else if (!this.animationEnded) {
+                // Nur wenn die "Images_Dead"-Animation nicht beendet ist, weiter prüfen
+                if (this.isHurt()) {
+                    this.playAnimation(this.Images_Hurt);
+                } else if (this.seeCharacterAlert()) {
+                    this.playAnimation(this.Images_Alert);
+                } else if (this.seeCharacterAttack()) {
+                    this.playAnimation(this.Images_Attack);
+                }
             }
         }, 200);
 
+        
+        
     }
 
+
+
+    playDeadAnimation() {
+        this.playAnimation(this.Images_Dead);
+        this.animationEnded = true;
+        clearInterval(this.endbossInterval);
+
+        this.y = 120;
+        
+        this.stopGame();
+
+        
+    }
+
+    
 
 
 
 }
+
+
+
+
+
+
+
+
+

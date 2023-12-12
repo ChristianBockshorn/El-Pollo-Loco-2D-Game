@@ -16,6 +16,7 @@ class MovableObject extends DrawableObject {
     };
     collectedCoins = 0;
     collectedBottles = 0;
+    
 
 
     applyGravity() {
@@ -73,12 +74,16 @@ class MovableObject extends DrawableObject {
     }
 
     hurtEndboss(){
-        this.energy -= 20;
-        if (this.energy < 0) {
-            this.energy = 0;
+        this.endbossEnergy -= 50;
+        if (this.endbossEnergy < 0) {
+            this.endbossEnergy = 0;
         } else {
             this.lastHit = new Date().getTime();
         }
+    }
+
+    endbossIsDead() {
+        return this.endbossEnergy == 0;
     }
 
     isDead() {
@@ -88,6 +93,7 @@ class MovableObject extends DrawableObject {
     kill() {
         this.energy = 0;
     }
+    
 
     seeCharacterAlert() {
         return (
@@ -131,5 +137,12 @@ class MovableObject extends DrawableObject {
 
     jump() {
         this.speedY = 30;
+    }
+
+    stopGame() {
+        console.log('Das Spiel wird gestoppt.');
+        document.getElementById('endScreen').classList.remove('d-none');
+
+
     }
 }

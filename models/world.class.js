@@ -1,6 +1,7 @@
 class World {
     character = new Character();
-    endboss = new Endboss();
+    
+    endboss = level1.endboss[0];
     level = level1;
     ctx;
     canvas;
@@ -13,7 +14,14 @@ class World {
     throwableObjects = [];
     coinsCollect = 0;
     collectedBottles = 0;
+
     
+
+
+    bottleStrikesEndboss = false;
+    endbossNotVulnerable = false;
+    characterNotVulnerable = false;
+
 
 
 
@@ -136,30 +144,21 @@ class World {
         setInterval(() => {
             this.throwableObjects.forEach((bottle) => {
                 this.level.endboss.forEach((endboss) => {
-
                     if (bottle.isColliding(endboss)) {
-                        this.endboss.hurtEndboss();
-                        // endboss.hit();
-
-                        // this.level.endboss[0].hit();
-                        
-                        // console.log(this.level.endboss[0].hit())
-
-                        // endboss.isHurt();
-                        // console.log('energy',energy)
-                        // this.level.endboss[0].isHurt();
-                        // console.log('collision with endboss energy', this.level.endboss[0].endbossEnergy)
-
-
+                        // Nur wenn der Endboss nicht bereits verletzt ist
+                        if (!endboss.isHurt()) {
+                            endboss.hurtEndboss();
+                            endboss.endbossIsDead();
+                            // this.playAnimation(this.Images_Hurt);
+                            this.statusBarEndboss.setPercentage(this.endboss.endbossEnergy);
+                        }
                     }
                 });
             });
         }, 200);
     }
 
-
-
-
+    
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

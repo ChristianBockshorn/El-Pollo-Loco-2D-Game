@@ -57,6 +57,14 @@ function doNotClosePopup(event) {
     event.stopPropagation();
 }
 
+function endScreen() {
+    document.getElementById('endScreen').classList.remove('d-none');
+}
+
+function closeEndScreen() {
+    document.getElementById('endScreen').classList.add('d-none');
+}
+
 window.addEventListener("keydown", (e) => {
     if (e.keyCode == 37) {
         keyboard.LEFT = true;
