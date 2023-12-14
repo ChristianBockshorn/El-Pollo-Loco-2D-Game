@@ -18,6 +18,7 @@ class StatusBarHealth extends DrawableObject {
         this.width = 170;
         this.height = 50;
         this.setPercentage(100);
+        this.checkCharacterEnergy();
     }
 
     setPercentage(percentage) {
@@ -49,5 +50,10 @@ class StatusBarHealth extends DrawableObject {
             this.percentage = 100;
         }
         this.setPercentage();
+    }
+
+    checkCharacterEnergy(){
+        this.percentage==0;
+        console.log('energy = 0',this.percentage)
     }
 }

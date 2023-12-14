@@ -67,6 +67,10 @@ body {
     margin-top: 10px;
 }
 
+.c-white{
+    color: white;
+}
+
 .material-symbols-outlined {
     cursor: pointer;
     font-size: 36px !important;

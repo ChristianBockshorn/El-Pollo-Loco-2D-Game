@@ -1,5 +1,6 @@
 class MovableObject extends DrawableObject {
     stop = 0;
+    
     speed = 0.15;
     otherDirection = false;
     speedY = 0;
@@ -16,7 +17,7 @@ class MovableObject extends DrawableObject {
     };
     collectedCoins = 0;
     collectedBottles = 0;
-    
+
 
 
     applyGravity() {
@@ -66,14 +67,14 @@ class MovableObject extends DrawableObject {
         }
     }
 
-//isHurt für true oder false wird returnt
+    //isHurt für true oder false wird returnt
     isHurt() {
         let timepassed = new Date().getTime() - this.lastHit; //Differenz in ms
         timepassed = timepassed / 1000; //Differenz in s
         return timepassed < 1.5;
     }
 
-    hurtEndboss(){
+    hurtEndboss() {
         this.endbossEnergy -= 50;
         if (this.endbossEnergy < 0) {
             this.endbossEnergy = 0;
@@ -93,7 +94,7 @@ class MovableObject extends DrawableObject {
     kill() {
         this.energy = 0;
     }
-    
+
 
     seeCharacterAlert() {
         return (
@@ -101,7 +102,7 @@ class MovableObject extends DrawableObject {
         );
     }
 
-    seeCharacterAttack(){
+    seeCharacterAttack() {
         return (
             world.character.x >= 1475
         );
@@ -140,9 +141,17 @@ class MovableObject extends DrawableObject {
     }
 
     stopGame() {
-        console.log('Das Spiel wird gestoppt.');
-        document.getElementById('endScreen').classList.remove('d-none');
+        if (world.character.energy == 0) {
+            document.getElementById('endScreen').classList.remove('d-none');
+            world.level.enemies.forEach((chicken) => {
+                chicken.speed = 0;
+                clearInterval;
+            });
 
+        } else if (this.animationEnded = true) {
+            document.getElementById('endScreen').classList.remove('d-none');
+        }
 
+ n
     }
 }

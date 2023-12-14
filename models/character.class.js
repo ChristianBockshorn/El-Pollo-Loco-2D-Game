@@ -120,7 +120,8 @@ class Character extends MovableObject {
 
         setInterval(() => {
             if (this.isDead()) {
-                this.playAnimation(this.Images_Dead);
+                this.playDeadCharacterAnimation();
+                
             } else if (this.isHurt()) {
                 this.playAnimation(this.Images_Hurt);
             } if (this.isAboveGround()) {
@@ -149,6 +150,11 @@ class Character extends MovableObject {
             this.world.keyboard.UP == false &&
             this.world.keyboard.DOWN == false
         );
+    }
+
+    playDeadCharacterAnimation(){
+        this.playAnimation(this.Images_Dead);
+        this.stopGame();
     }
 
 
