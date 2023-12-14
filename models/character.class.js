@@ -89,7 +89,7 @@ class Character extends MovableObject {
     }
 
     animate() {
-        setInterval(() => {
+        this.characterMovingAnimation = setInterval(() => {
             this.walking_sound.pause();
             //X-koordinate erhöhen
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
@@ -112,16 +112,16 @@ class Character extends MovableObject {
 
         }, 1000 / 60);
 
-        setInterval(() => {
+        this.characterIdleAnimation = setInterval(() => {
             if (this.idle()) {
                 this.playAnimation(this.Images_Idle);
             }
         }, 500);
 
-        setInterval(() => {
+        this.characterAnimation = setInterval(() => {
             if (this.isDead()) {
                 this.playDeadCharacterAnimation();
-                
+
             } else if (this.isHurt()) {
                 this.playAnimation(this.Images_Hurt);
             } if (this.isAboveGround()) {
@@ -152,10 +152,12 @@ class Character extends MovableObject {
         );
     }
 
-    playDeadCharacterAnimation(){
+    playDeadCharacterAnimation() {
         this.playAnimation(this.Images_Dead);
         this.stopGame();
     }
+
+    
 
 
 }

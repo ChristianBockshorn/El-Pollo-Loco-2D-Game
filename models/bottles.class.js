@@ -1,4 +1,4 @@
-class Bottles extends MovableObject{
+class Bottles extends MovableObject {
     y = 350;
     height = 100;
     width = 100;
@@ -19,22 +19,15 @@ class Bottles extends MovableObject{
     constructor() {
         super().loadImage('img/6_salsa_bottle/1_salsa_bottle_on_ground.png');
         this.x = 180 + Math.random() * 1800;
-        
+
         this.loadImages(this.IMAGES_BOTTLE);
         this.animate();
     }
 
     animate() {
-        setInterval(() => {
+        this.bottlesAnimation = setInterval(() => {
             this.playAnimation(this.IMAGES_BOTTLE);
         }, 1000);
     }
-
-    // collect(co) {
-    //     const index = this.world.level.bottles.indexOf(co);
-    //     if (index > -1) {
-    //       this.world.level.bottles.splice(index, 1);
-    //     }
-        
-    //   }
+    
 }

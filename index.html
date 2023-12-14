@@ -39,15 +39,13 @@
         <div class="controls-bg d-none" id="controls-bg" onclick="closeControls()">
             <div class="controls-container">
                 <div class="controls-container-left" onclick="doNotClosePopup(event)">
-                    <button class="start-btn" id="openFullscreenBtn" onclick="fullscreen()">Fullscreen</button>
-                    <button class="start-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Fullscreen
-                        close</button>
+                    <button class="controls-btn" id="openFullscreenBtn" onclick="fullscreen()">Left</button>
+                    <button class="controls-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Right</button>
 
                 </div>
                 <div class="controls-container-right" onclick="doNotClosePopup(event)">
-                    <button class="start-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Fullscreen
-                        close</button>
-                    <button class="start-btn" id="controlBtn" onclick="controls()">Controls</button>
+                    <button class="controls-btn-Spacebar" id="closeFullscreenBtn" onclick="closeFullscreen()">Spacebar</button>
+                    <button class="controls-btn-D" id="controlBtn" onclick="controls()">D</button>
                 </div>
 
 
@@ -86,7 +84,7 @@
 
         </div>
 
-        <div class="end-screen" id="endScreen" onclick="closeEndScreen()">
+        <div class="end-screen d-none" id="endScreen" onclick="closeEndScreen()">
             <div class="end-screen-container-btn" onclick="doNotClosePopup(event)">
                 <div class="tooltip">
                     <span class="tooltiptext">Play</span>

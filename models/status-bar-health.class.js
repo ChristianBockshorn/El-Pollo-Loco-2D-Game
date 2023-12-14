@@ -45,15 +45,15 @@ class StatusBarHealth extends DrawableObject {
     }
 
     collectCoin() {
-        this.percentage += 10; 
+        this.percentage += 10;
         if (this.percentage > 100) {
             this.percentage = 100;
         }
         this.setPercentage();
     }
 
-    checkCharacterEnergy(){
-        this.percentage==0;
-        console.log('energy = 0',this.percentage)
+    checkCharacterEnergy() {
+        this.percentage == 0;
+        console.log('energy = 0', this.percentage)
     }
 }

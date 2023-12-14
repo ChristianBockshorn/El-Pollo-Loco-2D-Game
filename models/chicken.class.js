@@ -11,8 +11,8 @@ class Chicken extends MovableObject {
     };
     energy = 1;
     chickenAnimation;
-    
-    
+
+
 
 
 
@@ -41,7 +41,8 @@ class Chicken extends MovableObject {
 
 
     animate() {
-        this.chickenAnimation=setInterval(() => {
+        this.chickenAnimation = setInterval(() => {
+            
             if (!this.isDead()) {
                 this.playWalkingAnimation();
             } else {
@@ -60,10 +61,7 @@ class Chicken extends MovableObject {
     playWalkingAnimation() {
         this.playAnimation(this.Images_Walking);
     }
-
-    stopchicken(){
-        clearInterval(this.chickenAnimation)
-    }
+    
 
 
 
