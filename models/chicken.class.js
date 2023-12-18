@@ -4,10 +4,10 @@ class Chicken extends MovableObject {
     height = 100;
     width = 80;
     offset = {
-        right: 5,
-        left: 5,
-        top: 10,
-        bottom: 10,
+        right: 0,
+        left: 30,
+        top: 0,
+        bottom: 0,
     };
     energy = 1;
     chickenAnimation;

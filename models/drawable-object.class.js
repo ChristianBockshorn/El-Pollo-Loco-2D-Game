@@ -2,6 +2,7 @@ class DrawableObject {
     //position
     x = 120;
     y = 250;
+
     img;
     //Maße-Bilder
     height = 200;
@@ -27,6 +28,15 @@ class DrawableObject {
             ctx.rect(this.x, this.y, this.width, this.height);
             ctx.stroke();
         }
+
+        // if (this instanceof Character || this instanceof Chicken || this instanceof Endboss || this instanceof Coins || this instanceof Bottles) {
+        //     ctx.beginPath();
+        //     ctx.lineWidth = '3';
+        //     ctx.strokeStyle = 'red';
+            
+        //     ctx.rect(this.x+this.offset.right, this.height+this.offset.top, this.offset.left, this.width+this.offset.bottom);
+        //     ctx.stroke();
+        // }
     }
 
     /**

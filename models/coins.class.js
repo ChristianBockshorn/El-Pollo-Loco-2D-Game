@@ -6,12 +6,12 @@ class Coins extends MovableObject {
     posX = 50;
     posY = 50;
 
-    // offset = {
-    //     top: 40,
-    //     left: 40,
-    //     right: 40,
-    //     bottom: 40
-    // };
+    offset = {
+        top: 0,
+        left: 60,
+        right: 0,
+        bottom: 10
+    };
 
 
     IMAGES_COINS = [

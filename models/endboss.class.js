@@ -85,6 +85,7 @@ class Endboss extends MovableObject {
             } else if (!this.animationEnded) {
                 // Nur wenn die "Images_Dead"-Animation nicht beendet ist, weiter prüfen
                 if (this.isHurt()) {
+                    bottles.splashOnTheGround = true;
                     this.playAnimation(this.Images_Hurt);
                 } else if (this.seeCharacterAlert()) {
                     this.playAnimation(this.Images_Alert);
