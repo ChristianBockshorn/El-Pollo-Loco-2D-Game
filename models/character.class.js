@@ -1,7 +1,7 @@
 class Character extends MovableObject {
     world;
     speed = 2;
-    y = 80;
+    y = 80; // Position bis wohin er springt
     offset = {
         top: 130,
         right: 20,

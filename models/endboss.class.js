@@ -4,7 +4,6 @@ class Endboss extends MovableObject {
     width = 230;
 
     animationEnded = false;
-    deadAnimationLoaded = true;
 
     Images_Walking = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -85,7 +84,6 @@ class Endboss extends MovableObject {
             } else if (!this.animationEnded) {
                 // Nur wenn die "Images_Dead"-Animation nicht beendet ist, weiter prüfen
                 if (this.isHurt()) {
-                    bottles.splashOnTheGround = true;
                     this.playAnimation(this.Images_Hurt);
                 } else if (this.seeCharacterAlert()) {
                     this.playAnimation(this.Images_Alert);

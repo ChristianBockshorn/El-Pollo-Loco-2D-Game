@@ -2,8 +2,8 @@ class MovableObject extends DrawableObject {
     stop = 0;
     speed = 0.15;
     otherDirection = false;
-    speedY = 0;
-    acceleration = 2.5;
+    speedY = 0; //Geschwindigkeit wie schnell etwas nach unten fällt
+    acceleration = 2.5; //Wie schnell das Objekt beschleunigt wird
     energy = 100;
     chickenEnergy = 100;
     endbossEnergy = 100;
@@ -33,7 +33,7 @@ class MovableObject extends DrawableObject {
         if (this instanceof ThrowableObject) {
             return true;
         } else {
-            return this.y < 245;
+            return this.y < 245; //Fußboden bei y=245 wo der Character steht
         }
     }
 
@@ -131,7 +131,7 @@ class MovableObject extends DrawableObject {
     }
 
     stopMoving() {
-        this.x += this.stop;
+        this.speed=0;
     }
 
 

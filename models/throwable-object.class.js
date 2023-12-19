@@ -14,19 +14,21 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png',
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png',
     ];
-
+    world;
     splashOnTheGround = false;
-    
+    isSplashed = false;
+
     constructor(x, y) {
         super().loadImage('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');
 
         this.x = x;
         this.y = y;
-        
+
         //Größe der bottle
         this.height = 60;
         this.width = 50;
         //-------------
+
         this.throw();
         this.loadImages(this.IMAGES_BOTTLE);
         this.loadImages(this.IMAGES_BOTTLE_SPLASH);
@@ -34,36 +36,44 @@ class ThrowableObject extends MovableObject {
 
     }
 
+
     animate() {
-        if (this.splashOnTheGround) {
-            
-            setInterval(() => this.bottleSplash(), 100);
-        } else {
-            setInterval(() => {
+        setInterval(() => {
+            if (this.throwbottle()) {
+                this.bottleSplashAnimation();
+            } else {
                 this.playAnimation(this.IMAGES_BOTTLE);
-            }, 150);
-        }
-
-
+            }
+        }, 100);
     }
 
+
+    throwbottle() {
+        // return world.character.y < 300
+        return this.y >= 300;
+    }
+
+
     throw() {
-        this.speedY = 30;
+        this.speedY = 30; //Geschwindigkeit nach unten
         this.applyGravity();
         setInterval(() => {
             this.x += 10;
         }, 25);
-
     }
 
-    bottleSplash() {
+
+    bottleSplashAnimation() {
         this.playAnimation(this.IMAGES_BOTTLE_SPLASH);
+        this.speedY = -25;
+
     }
 
-    bottleIsOnTheGround(){
-        return this.y >= 80;
+
+    bottleIsOnTheGround() {
+        return this.posY >= 80;
     }
-    
+
 
 
 }

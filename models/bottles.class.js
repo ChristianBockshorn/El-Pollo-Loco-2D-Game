@@ -1,8 +1,11 @@
 class Bottles extends MovableObject {
-    y = 350;
+    y = 350;//Höhe der einzusammelnden Flaschen auf dem Boden
+
+    //Größe der Flaschen
     height = 100;
     width = 100;
-
+    //---------
+    
     offset = {
         top: 0,
         left: 60,
@@ -29,5 +32,5 @@ class Bottles extends MovableObject {
             this.playAnimation(this.IMAGES_BOTTLE);
         }, 1000);
     }
-    
+
 }
