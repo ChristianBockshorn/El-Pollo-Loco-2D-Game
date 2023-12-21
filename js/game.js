@@ -16,6 +16,10 @@ function startGame() {
     startScreen = document.getElementById('startScreen').classList.add('d-none');
 }
 
+function restart() {
+    location.reload();
+}
+
 
 
 function fullscreen() {
