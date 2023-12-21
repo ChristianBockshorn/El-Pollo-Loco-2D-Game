@@ -89,7 +89,17 @@
 
         </div>
 
-        <div class="end-screen d-none" id="endScreen" onclick="closeEndScreen()">
+        <div class="end-screen d-none" id="endScreen" >
+            <div class="end-screen-container-btn" onclick="doNotClosePopup(event)">
+                <div class="tooltip">
+                    <span class="tooltiptext">Restart Game</span>
+                    <span class="material-symbols-outlined c-white" class="start-btn" id="start-btn"
+                        onclick="restart()">play_circle</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="end-screen-win d-none" id="endScreenIfWin" >
             <div class="end-screen-container-btn" onclick="doNotClosePopup(event)">
                 <div class="tooltip">
                     <span class="tooltiptext">Restart Game</span>

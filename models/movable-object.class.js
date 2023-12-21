@@ -131,7 +131,7 @@ class MovableObject extends DrawableObject {
     }
 
     stopMoving() {
-        this.speed=0;
+        this.speed = 0;
     }
 
 
@@ -140,6 +140,8 @@ class MovableObject extends DrawableObject {
     }
 
     stopGame() {
+
+        //Wenn man verliert
         if (world.character.energy == 0) {
             document.getElementById('endScreen').classList.remove('d-none');
             world.level.enemies.forEach((chicken) => {
@@ -158,12 +160,13 @@ class MovableObject extends DrawableObject {
             clearInterval(world.character.characterAnimation);
             clearInterval(world.character.characterIdleAnimation);
             clearInterval(world.character.characterMovingAnimation);
-
-
+            
+            
+            //wenn man gewinnt
         } else if (this.animationEnded = true) {
-            document.getElementById('endScreen').classList.remove('d-none');
+            document.getElementById('endScreenIfWin').classList.remove('d-none');
         }
 
- 
+
     }
 }
