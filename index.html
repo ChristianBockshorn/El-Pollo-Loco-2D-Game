@@ -38,19 +38,22 @@
     <div class="startContainer" id="forFullscreen">
         <div class="controls-bg d-none" id="controls-bg" onclick="closeControls()">
             <div class="controls-container">
-                <div class="controls-container-left" onclick="doNotClosePopup(event)">
-                    <button class="controls-btn" id="openFullscreenBtn" onclick="fullscreen()">Left</button>
-                    <button class="controls-btn" id="closeFullscreenBtn" onclick="closeFullscreen()">Right</button>
-
+                <div class="controls-container-separate">
+                    <img src="img/icons/left_arrow.png">
+                    <span>Left</span>
                 </div>
-                <div class="controls-container-right" onclick="doNotClosePopup(event)">
-                    <div>
-                        <button class="controls-btn-Spacebar" id="closeFullscreenBtn" onclick="closeFullscreen()">Spacebar</button>
-                    </div>
-                    <button class="controls-btn-D" id="controlBtn" onclick="controls()">D</button>
+                <div class="controls-container-separate">
+                    <img src="img/icons/right_arrow.png">
+                    <span>Right</span>
                 </div>
-
-
+                <div class="controls-container-separate">
+                    <img src="img/icons/spacebar.png">
+                    <span>Spacebar</span>
+                </div>
+                <div class="controls-container-separate">
+                    <img src="img/icons/D.png">
+                    <span>Throw</span>
+                </div>
             </div>
         </div>
 

@@ -229,25 +229,29 @@ body {
     width: 720px;
     height: 480px;
     z-index: 999;
+    
+}
+
+.overlay-bg {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 
 .controls-container {
     display: flex;
+    flex-direction: column;
     height: 480px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    color: white;
+    font-size: xxx-large;
 }
 
-.controls-container-left {
+.controls-container-separate{
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.controls-container-right {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
 }
 
 canvas {
