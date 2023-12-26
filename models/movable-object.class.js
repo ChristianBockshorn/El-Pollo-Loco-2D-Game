@@ -165,6 +165,23 @@ class MovableObject extends DrawableObject {
             //wenn man gewinnt
         } else if (this.animationEnded = true) {
             document.getElementById('endScreenIfWin').classList.remove('d-none');
+            world.level.enemies.forEach((chicken) => {
+                chicken.speed = 0;
+                clearInterval(chicken.chickenAnimation);
+            });
+            world.level.bottles.forEach((bottle) => {
+                clearInterval(bottle.bottlesAnimation);
+            });
+            world.level.coins.forEach((coin) => {
+                clearInterval(coin.coinAnimation);
+            });
+            world.level.endboss.forEach((endboss) => {
+                clearInterval(endboss.endbossInterval);
+            });
+
+            clearInterval(world.character.characterAnimation);
+            clearInterval(world.character.characterIdleAnimation);
+            clearInterval(world.character.characterMovingAnimation);
         }
 
 
