@@ -14,6 +14,7 @@ class World {
     throwableObjects = [];
     coinsCollect = 0;
     collectedBottles = 0;
+    soundIcon = document.getElementById('audioBtn');
 
 
 
