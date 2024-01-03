@@ -65,9 +65,11 @@ class Endboss extends MovableObject {
         if (this.endbossIsDead() && !this.animationEnded) {
             this.playDeadAnimation();
         } else if (!this.animationEnded) {
-            // Nur wenn die "Images_Dead"-Animation nicht beendet ist, weiter prüfen
             if (this.isHurt()) {
+                this.moveLeft();
+                this.speed = 20;
                 this.playAnimation(this.Images_Hurt);
+                this.playAnimation(this.Images_Walking);
             } else if (this.seeCharacterAlert()) {
                 this.playAnimation(this.Images_Alert);
             } else if (this.seeCharacterAttack()) {
@@ -84,11 +86,6 @@ class Endboss extends MovableObject {
         this.y = 120;
         this.stopGame();
     }
-
-
-
-
-
 }
 
 

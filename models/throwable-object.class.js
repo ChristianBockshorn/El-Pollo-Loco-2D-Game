@@ -22,23 +22,9 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png',
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png',
     ];
-
-    /**
-     * Die Welt, in der sich das werfbare Objekt befindet.
-     * @type {object}
-     */
+    
     world;
-
-    /**
-     * Gibt an, ob die Flasche auf dem Boden kaputt gegangen ist.
-     * @type {boolean}
-     */
     splashOnTheGround = false;
-
-    /**
-     * Gibt an, ob die Flasche kaputt gegangen ist.
-     * @type {boolean}
-     */
     isSplashed = false;
 
     /**
