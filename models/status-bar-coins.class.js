@@ -1,4 +1,8 @@
 class StatusBarCoins extends DrawableObject {
+    /**
+     * Array von Bildpfaden für verschiedene Münzzustände.
+     * @type {string[]}
+     */
     IMAGES_COIN = [
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/0.png',
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/20.png',
@@ -7,11 +11,19 @@ class StatusBarCoins extends DrawableObject {
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/80.png',
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/100.png',
     ];
+
+    /**
+     * Die Anzahl der gesammelten Münzen.
+     * @type {number}
+     */
     coinsCollect = 0;
 
-
+    /**
+     * Erstellt eine neue StatusBarCoins-Instanz.
+     * @constructor
+     */
     constructor() {
-        super(); //Um die Methoden vom übergeordneten Objekt auch noch zu initialisieren
+        super();
         this.loadImages(this.IMAGES_COIN);
         this.x = 10;
         this.y = 40;
@@ -20,14 +32,20 @@ class StatusBarCoins extends DrawableObject {
         this.setCoins(0);
     }
 
-
+    /**
+     * Setzt die Anzahl der gesammelten Münzen und aktualisiert das angezeigte Bild.
+     * @param {number} coinsCollect - Die Anzahl der gesammelten Münzen (0 bis 100).
+     */
     setCoins(coinsCollect) {
-        this.coinsCollect = coinsCollect; //=> 0...5
+        this.coinsCollect = coinsCollect;
         let path = this.IMAGES_COIN[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
-
+    /**
+     * Ermittelt den Index des Bildes basierend auf der Anzahl der gesammelten Münzen.
+     * @returns {number} - Der Index des Bildes im IMAGES_COIN-Array.
+     * */
     resolveImageIndex() {
         if (this.coinsCollect >= 100) {
             return 5;

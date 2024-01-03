@@ -76,8 +76,15 @@ function endScreen() {
 
 function audio() {
     console.log('Audio ausschalten')
-    let audioElemente = world.character.walking_sound
-    audioElemente.muted=true;
+    // world.character.walking_sound.muted = true;
+    // document.getElementById('audioBtn').innerText = "volume_off";
+
+    if (world.character.walking_sound.muted = true) {
+        document.getElementById('audioBtn').innerText = "volume_off";
+    } if (world.character.walking_sound.muted = false) {
+        document.getElementById('audioBtn').innerText = "volume_up";
+    }
+
 }
 
 
