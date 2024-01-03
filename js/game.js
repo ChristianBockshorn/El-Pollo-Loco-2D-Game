@@ -42,29 +42,6 @@ function openFullscreen(element) {
 }
 
 
-
-/* Open fullscreen */
-// function openFullscreen() {
-//     console.log('openFullScreen wird aufgerufen!');
-//     let canvas  = document.getElementById('canvas');
-//     canvas.width = window.innerWidth;
-//     canvas.height = window.innerHeight;
-//     const canvast = document.getElementById('forFullscreen');
-
-//     if (canvast.requestFullscreen) {
-//         canvast.requestFullscreen()
-//     } else if (canvast.webkitRequestFullscreen) { /* Safari */
-//     canvast.webkitRequestFullscreen();
-//     } else if (canvast.msRequestFullscreen) { /* IE11 */
-//     canvast.msRequestFullscreen();
-//     }
-
-// }
-
-
-
-
-
 /* Close fullscreen */
 function closeFullscreen() {
     if (document.exitFullscreen) {
@@ -81,13 +58,16 @@ function controls() {
     document.getElementById('controls-bg').classList.remove('d-none');
 }
 
+
 function closeControls() {
     document.getElementById('controls-bg').classList.add('d-none');
 }
 
+
 function doNotClosePopup(event) {
     event.stopPropagation();
 }
+
 
 function endScreen() {
     document.getElementById('endScreen').classList.remove('d-none');
@@ -98,8 +78,8 @@ function audio() {
     console.log('Audio ausschalten')
     let audioElemente = world.character.walking_sound
     audioElemente.muted=true;
-
 }
+
 
 window.addEventListener("keydown", (e) => {
     if (e.keyCode == 37) {
@@ -126,6 +106,7 @@ window.addEventListener("keydown", (e) => {
         keyboard.D = true;
     }
 });
+
 
 window.addEventListener("keyup", (e) => {
     if (e.keyCode == 37) {
