@@ -18,7 +18,6 @@ class MovableObject extends DrawableObject {
     collectedBottles = 0;
 
 
-
     applyGravity() {
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
@@ -73,6 +72,7 @@ class MovableObject extends DrawableObject {
         return timepassed < 1.5;
     }
 
+
     hurtEndboss() {
         this.endbossEnergy -= 50;
         if (this.endbossEnergy < 0) {
@@ -82,13 +82,16 @@ class MovableObject extends DrawableObject {
         }
     }
 
+
     endbossIsDead() {
         return this.endbossEnergy == 0;
     }
 
+
     isDead() {
         return this.energy == 0;
     }
+
 
     kill() {
         this.energy = 0;
@@ -101,11 +104,13 @@ class MovableObject extends DrawableObject {
         );
     }
 
+
     seeCharacterAttack() {
         return (
             world.character.x >= 1475
         );
     }
+
 
     isCollectedCoins() {
         this.collectedCoins += 10;
@@ -130,6 +135,7 @@ class MovableObject extends DrawableObject {
         this.x -= this.speed;
     }
 
+
     stopMoving() {
         this.speed = 0;
     }
@@ -139,51 +145,40 @@ class MovableObject extends DrawableObject {
         this.speedY = 30;
     }
 
+
     stopGame() {
-
-        //Wenn man verliert
-        if (world.character.energy == 0) {
+        if (world.character.energy == 0) {//Wenn man verliert
             document.getElementById('endScreen').classList.remove('d-none');
-            world.level.enemies.forEach((chicken) => {
-                chicken.speed = 0;
-                clearInterval(chicken.chickenAnimation);
-            });
-            world.level.bottles.forEach((bottle) => {
-                clearInterval(bottle.bottlesAnimation);
-            });
-            world.level.coins.forEach((coin) => {
-                clearInterval(coin.coinAnimation);
-            });
-            world.level.endboss.forEach((endboss) => {
-                clearInterval(endboss.endbossInterval);
-            });
-            clearInterval(world.character.characterAnimation);
-            clearInterval(world.character.characterIdleAnimation);
-            clearInterval(world.character.characterMovingAnimation);
-            
-            
-            //wenn man gewinnt
-        } else if (this.animationEnded = true) {
+            this.clearWorldLevelIntervalls();
+            this.stopGameIntervall();
+        } else if (this.animationEnded = true) {//wenn man gewinnt
             document.getElementById('endScreenIfWin').classList.remove('d-none');
-            world.level.enemies.forEach((chicken) => {
-                chicken.speed = 0;
-                clearInterval(chicken.chickenAnimation);
-            });
-            world.level.bottles.forEach((bottle) => {
-                clearInterval(bottle.bottlesAnimation);
-            });
-            world.level.coins.forEach((coin) => {
-                clearInterval(coin.coinAnimation);
-            });
-            world.level.endboss.forEach((endboss) => {
-                clearInterval(endboss.endbossInterval);
-            });
-
-            clearInterval(world.character.characterAnimation);
-            clearInterval(world.character.characterIdleAnimation);
-            clearInterval(world.character.characterMovingAnimation);
+            this.clearWorldLevelIntervalls();
+            this.stopGameIntervall();
         }
+    }
 
 
+    clearWorldLevelIntervalls() {
+        world.level.enemies.forEach((chicken) => {
+            chicken.speed = 0;
+            clearInterval(chicken.chickenAnimation);
+        });
+        world.level.bottles.forEach((bottle) => {
+            clearInterval(bottle.bottlesAnimation);
+        });
+        world.level.coins.forEach((coin) => {
+            clearInterval(coin.coinAnimation);
+        });
+        world.level.endboss.forEach((endboss) => {
+            clearInterval(endboss.endbossInterval);
+        });
+    }
+
+
+    stopGameIntervall() {
+        clearInterval(world.character.characterAnimation);
+        clearInterval(world.character.characterIdleAnimation);
+        clearInterval(world.character.characterMovingAnimation);
     }
 }

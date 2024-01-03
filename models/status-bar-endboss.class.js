@@ -7,13 +7,12 @@ class StatusBarEndboss extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/orange/80.png',// Bild Nr 4
         'img/7_statusbars/1_statusbar/2_statusbar_health/orange/100.png', // Bild Nr 5
     ];
-
     percentage = 100;
+
 
     constructor() {
         super(); //Um die Methoden vom übergeordneten Objekt auch noch zu initialisieren
         this.loadImages(this.IMAGES_ENDBOSS_HEALTH);
-
         this.x = 500;
         this.y = 0;
         this.width = 170;
@@ -21,11 +20,13 @@ class StatusBarEndboss extends DrawableObject {
         this.setPercentage(100);
     }
 
+
     setPercentage(percentage) {
         this.percentage = percentage; //=> 0...5
         let path = this.IMAGES_ENDBOSS_HEALTH[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
+
 
     resolveImageIndex() {
         if (this.percentage == 100) {
@@ -41,9 +42,5 @@ class StatusBarEndboss extends DrawableObject {
         } else {
             return 0;
         }
-
     }
-
-
-
 }

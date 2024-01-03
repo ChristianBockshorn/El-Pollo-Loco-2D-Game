@@ -7,8 +7,8 @@ class StatusBarHealth extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/blue/80.png',// Bild Nr 4
         'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png', // Bild Nr 5
     ];
-
     percentage = 100;
+
 
     constructor() {
         super(); //Um die Methoden vom übergeordneten Objekt auch noch zu initialisieren
@@ -21,11 +21,13 @@ class StatusBarHealth extends DrawableObject {
         this.checkCharacterEnergy();
     }
 
+
     setPercentage(percentage) {
         this.percentage = percentage; //=> 0...5
         let path = this.IMAGES_HEALTH[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
+
 
     resolveImageIndex() {
         if (this.percentage == 100) {
@@ -41,8 +43,8 @@ class StatusBarHealth extends DrawableObject {
         } else {
             return 0;
         }
-
     }
+
 
     collectCoin() {
         this.percentage += 10;
@@ -51,6 +53,7 @@ class StatusBarHealth extends DrawableObject {
         }
         this.setPercentage();
     }
+
 
     checkCharacterEnergy() {
         this.percentage == 0;

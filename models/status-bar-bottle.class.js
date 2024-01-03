@@ -6,10 +6,9 @@ class StatusBarBottle extends DrawableObject {
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/60.png',
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/80.png',
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/100.png',
-
     ];
-
     collected = 0;
+
 
     constructor() {
         super(); //Um die Methoden vom übergeordneten Objekt auch noch zu initialisieren
@@ -21,11 +20,13 @@ class StatusBarBottle extends DrawableObject {
         this.setCollected(0);
     }
 
+
     setCollected(collected) {
         this.collected = collected; //=> 0...5
         let path = this.IMAGES_BOTTLE[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
+
 
     resolveImageIndex() {
         if (this.collected >= 10) {
@@ -41,6 +42,5 @@ class StatusBarBottle extends DrawableObject {
         } else {
             return 0;
         }
-
     }
 }
