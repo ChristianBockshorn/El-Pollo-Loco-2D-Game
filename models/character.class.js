@@ -192,8 +192,4 @@ class Character extends MovableObject {
         this.playAnimation(this.Images_Dead);
         this.stopGame();
     }
-
-
-
-
 }
