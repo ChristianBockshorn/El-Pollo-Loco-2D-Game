@@ -75,16 +75,13 @@ function endScreen() {
 
 
 function audio() {
-    console.log('Audio ausschalten')
-    // world.character.walking_sound.muted = true;
-    // document.getElementById('audioBtn').innerText = "volume_off";
-
-    if (world.character.walking_sound.muted = true) {
-        document.getElementById('audioBtn').innerText = "volume_off";
-    } if (world.character.walking_sound.muted = false) {
+    if (world.character.walking_sound.muted) {
+        world.character.walking_sound.muted = false;
         document.getElementById('audioBtn').innerText = "volume_up";
+    } else {
+        world.character.walking_sound.muted = true;
+        document.getElementById('audioBtn').innerText = "volume_off";
     }
-
 }
 
 
