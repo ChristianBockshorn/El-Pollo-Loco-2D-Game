@@ -8,7 +8,12 @@ class DrawableObject {
     width = 100;
     imageCache = [];
     currentImage = 0;
-
+    offset = {
+        top: 20,
+        left: 20,
+        right: 0,
+        bottom: 0
+    };
 
     loadImage(path) {
         this.img = new Image();
@@ -20,9 +25,9 @@ class DrawableObject {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     }
 
-    
+
     drawFrame(ctx) {
-        // if (this instanceof Character || this instanceof Chicken || this instanceof Endboss || this instanceof Coins || this instanceof Bottles) {
+        // if (this instanceof Character || this instanceof Chicken || this instanceof ChickenSmall) {
         //     ctx.beginPath();
         //     ctx.lineWidth = '5';
         //     ctx.strokeStyle = 'blue';
@@ -30,12 +35,11 @@ class DrawableObject {
         //     ctx.stroke();
         // }
 
-        // if (this instanceof Character || this instanceof Chicken || this instanceof Endboss || this instanceof Coins || this instanceof Bottles) {
+        // if (this instanceof Character || this instanceof Chicken || this instanceof ChickenSmall) {
         //     ctx.beginPath();
         //     ctx.lineWidth = '3';
         //     ctx.strokeStyle = 'red';
-            
-        //     ctx.rect(this.x+this.offset.right, this.height+this.offset.top, this.offset.left, this.width+this.offset.bottom);
+        //     ctx.rect(this.x-this.offset.right, this.offset.top, this.offset.left, this.offset.bottom);
         //     ctx.stroke();
         // }
     }

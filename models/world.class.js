@@ -35,12 +35,40 @@ class World {
 
 
     run() {
+        
         setInterval(() => {
             this.checkCollisions();
             this.checkthrowObjects();
-        }, 200);
+        }, 90);
+        
     }
 
+    
+
+    // checkthrowObjects() {
+    //     if (this.keyboard.D && this.collectedBottles > 0) {
+    //         if (!this.hasThrown) {
+    //             this.hasThrown = true;
+    //             this.collectedBottles--;
+    //             let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100);
+    //             this.throwableObjects.push(bottle);
+    //             this.reduceBottleByThrowing();
+    //             let resetThrowStatus = () => {
+    //                 this.hasThrown = false;
+    //             };
+    //             setTimeout(resetThrowStatus, 20000);
+    //         }
+    //     } else {
+    //         this.hasThrown = false;
+    //     }
+    // }
+
+    // run() {
+    //     setInterval(() => {
+    //         this.checkCollisions();
+    //         this.checkthrowObjects();
+    //     }, 200);
+    // }
 
     checkthrowObjects() {
         if (this.keyboard.D && this.collectedBottles > 0) {
@@ -49,7 +77,7 @@ class World {
             this.throwableObjects.push(bottle);
             this.reduceBottleByThrowing();
         }
-    };
+    }
 
 
     reduceBottleByThrowing() {
