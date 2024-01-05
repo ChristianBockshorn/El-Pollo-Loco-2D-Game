@@ -45,23 +45,23 @@ class World {
 
     
 
-    // checkthrowObjects() {
-    //     if (this.keyboard.D && this.collectedBottles > 0) {
-    //         if (!this.hasThrown) {
-    //             this.hasThrown = true;
-    //             this.collectedBottles--;
-    //             let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100);
-    //             this.throwableObjects.push(bottle);
-    //             this.reduceBottleByThrowing();
-    //             let resetThrowStatus = () => {
-    //                 this.hasThrown = false;
-    //             };
-    //             setTimeout(resetThrowStatus, 20000);
-    //         }
-    //     } else {
-    //         this.hasThrown = false;
-    //     }
-    // }
+    checkthrowObjects() {
+        if (this.keyboard.D && this.collectedBottles > 0) {
+            if (!this.hasThrown) {
+                this.hasThrown = true;
+                this.collectedBottles--;
+                let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100);
+                this.throwableObjects.push(bottle);
+                this.reduceBottleByThrowing();
+                let resetThrowStatus = () => {
+                    this.hasThrown = false;
+                };
+                setTimeout(resetThrowStatus, 20000);
+            }
+        } else {
+            this.hasThrown = false;
+        }
+    }
 
     // run() {
     //     setInterval(() => {
@@ -70,14 +70,14 @@ class World {
     //     }, 200);
     // }
 
-    checkthrowObjects() {
-        if (this.keyboard.D && this.collectedBottles > 0) {
-            this.collectedBottles--;
-            let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100) //Position, wo die Flasche aus den Händen geworfen wird 
-            this.throwableObjects.push(bottle);
-            this.reduceBottleByThrowing();
-        }
-    }
+    // checkthrowObjects() {
+    //     if (this.keyboard.D && this.collectedBottles > 0) {
+    //         this.collectedBottles--;
+    //         let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100) //Position, wo die Flasche aus den Händen geworfen wird 
+    //         this.throwableObjects.push(bottle);
+    //         this.reduceBottleByThrowing();
+    //     }
+    // }
 
 
     reduceBottleByThrowing() {
