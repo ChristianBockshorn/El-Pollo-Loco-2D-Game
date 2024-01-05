@@ -1,3 +1,16 @@
+/**
+ * @class
+ * @extends {MovableObject}
+ * @property {number} y - The y-coordinate of the endboss.
+ * @property {number} height - The height of the endboss.
+ * @property {number} width - The width of the endboss.
+ * @property {boolean} animationEnded - The state of the animation.
+ * @property {string[]} Images_Walking - The array of image paths for the walking animation.
+ * @property {string[]} Images_Alert - The array of image paths for the alert animation.
+ * @property {string[]} Images_Attack - The array of image paths for the attack animation.
+ * @property {string[]} Images_Hurt - The array of image paths for the hurt animation.
+ * @property {string[]} Images_Dead - The array of image paths for the dead animation.
+ */
 class Endboss extends MovableObject {
     y = 80;
     height = 400;
@@ -53,14 +66,18 @@ class Endboss extends MovableObject {
         this.animate();
     }
 
-
+    /**
+     * Starts the endboss animation.
+     */
     animate() {
         this.endbossInterval = setInterval(() => {
             this.endbossAnimate();
         }, 200);
     }
 
-    
+    /**
+     * Animates the endboss based on its state (dead or alive).
+     */
     endbossAnimate() {
         if (this.endbossIsDead() && !this.animationEnded) {
             this.playDeadAnimation();
@@ -78,7 +95,9 @@ class Endboss extends MovableObject {
         }
     }
 
-
+    /**
+     * Plays the dead animation for the endboss.
+     */
     playDeadAnimation() {
         this.playAnimation(this.Images_Dead);
         this.animationEnded = true;

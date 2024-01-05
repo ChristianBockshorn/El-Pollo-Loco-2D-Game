@@ -1,3 +1,15 @@
+/**
+ * Creates a new Level instance.
+ * 
+ * @type {Level}
+ * @property {Chicken[]} chickens - An array of Chicken objects.
+ * @property {ChickenSmall[]} chickensSmall - An array of ChickenSmall objects.
+ * @property {Endboss[]} endbosses - An array of Endboss objects.
+ * @property {Cloud[]} clouds - An array of Cloud objects.
+ * @property {Coins[]} coins - An array of Coins objects.
+ * @property {Bottles[]} bottles - An array of Bottles objects.
+ * @property {BackgroundObject[]} backgroundObjects - An array of BackgroundObject objects.
+ */
 const level1 = new Level(
     [
         new Chicken(),
@@ -7,7 +19,7 @@ const level1 = new Level(
         new ChickenSmall(),
         new ChickenSmall(),
         new ChickenSmall(),
-        
+
     ],
     [
         new Endboss()

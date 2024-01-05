@@ -70,7 +70,6 @@ class ChickenSmall extends MovableObject {
 
     /**
      * Initiates the chicken animation.
-     * @private
      */
     animate() {
         this.chickenAnimation = setInterval(() => {
@@ -80,7 +79,6 @@ class ChickenSmall extends MovableObject {
 
     /**
      * Performs the chicken animation based on its state.
-     * @private
      */
     chickenAnimate() {
         if (!this.isDead()) {
@@ -101,7 +99,6 @@ class ChickenSmall extends MovableObject {
 
     /**
      * Plays the walking animation.
-     * @private
      */
     playWalkingAnimation() {
         this.playAnimation(this.Images_Walking);

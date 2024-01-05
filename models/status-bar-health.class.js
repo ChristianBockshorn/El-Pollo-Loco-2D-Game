@@ -1,6 +1,6 @@
 class StatusBarHealth extends DrawableObject {
     /**
-     * Array von Bildpfaden für verschiedene Gesundheitszustände.
+     * Array of image paths for different health states.
      * @type {string[]}
      */
     IMAGES_HEALTH = [
@@ -13,13 +13,13 @@ class StatusBarHealth extends DrawableObject {
     ];
 
     /**
-     * Der prozentuale Wert der Gesundheit.
+     * The percentage value of health.
      * @type {number}
      */
     percentage = 100;
 
     /**
-     * Erstellt eine neue HealthStatusBar-Instanz.
+     * Creates a new HealthStatusBar instance.
      * @constructor
      */
     constructor() {
@@ -34,8 +34,8 @@ class StatusBarHealth extends DrawableObject {
     }
 
     /**
-     * Setzt den prozentualen Wert der Gesundheit und aktualisiert das angezeigte Bild.
-     * @param {number} percentage - Der prozentuale Wert der Gesundheit (0 bis 100).
+     * Sets the percentage value of health and updates the displayed image.
+     * @param {number} percentage - The percentage value of health (0 to 100).
      */
     setPercentage(percentage) {
         this.percentage = percentage;
@@ -44,8 +44,8 @@ class StatusBarHealth extends DrawableObject {
     }
 
     /**
-     * Ermittelt den Index des Bildes basierend auf dem prozentualen Wert der Gesundheit.
-     * @returns {number} - Der Index des Bildes im IMAGES_HEALTH-Array.
+     * Determines the index of the image based on the percentage value of health.
+     * @returns {number} - The index of the image in the IMAGES_HEALTH array.
      */
     resolveImageIndex() {
         if (this.percentage === 100) {
@@ -64,7 +64,7 @@ class StatusBarHealth extends DrawableObject {
     }
 
     /**
-     * Erhöht die Gesundheit um 10 Prozentpunkte und aktualisiert die Anzeige.
+     * Increases health by 10 percentage points and updates the display.
      */
     collectCoin() {
         this.percentage += 10;
@@ -75,10 +75,10 @@ class StatusBarHealth extends DrawableObject {
     }
 
     /**
-     * Überprüft die Energie des Charakters und gibt eine Meldung aus, wenn die Energie 0 ist.
+     * Checks the character's energy and outputs a message when the energy is 0.
      */
     checkCharacterEnergy() {
         this.percentage = 0;
-        console.log('Energie = 0', this.percentage);
+        console.log('Energy = 0', this.percentage);
     }
 }

@@ -1,3 +1,15 @@
+/**
+ * @class
+ * @extends {MovableObject}
+ * @property {number} y - The y-coordinate of the chicken.
+ * @property {number} height - The height of the chicken.
+ * @property {number} width - The width of the chicken.
+ * @property {Object} offset - The offset values for the chicken.
+ * @property {number} energy - The energy level of the chicken.
+ * @property {number} chickenAnimation - The chicken animation interval.
+ * @property {string[]} Images_Walking - The array of image paths for the walking animation.
+ * @property {string[]} Images_Dead - The array of image paths for the dead animation.
+ */
 class Chicken extends MovableObject {
     y = 350;
     height = 100;
@@ -33,13 +45,18 @@ class Chicken extends MovableObject {
     }
 
 
+    /**
+     * Starts the chicken animation.
+     */
     animate() {
         this.chickenAnimation = setInterval(() => {
             this.chickenAnimate();
         }, 250);
     }
 
-
+    /**
+     * Animates the chicken based on its state (dead or alive).
+     */
     chickenAnimate() {
         if (!this.isDead()) {
             this.playWalkingAnimation();
@@ -49,13 +66,18 @@ class Chicken extends MovableObject {
     }
 
 
+    /**
+     * Moves the chicken to the left at a rate of 60FPS.
+     */
     moving() {
         setInterval(() => {
             this.moveLeft();
-        }, 1000 / 60);//60FPS
+        }, 1000 / 60);
     }
 
-
+    /**
+     * Plays the walking animation for the chicken.
+     */
     playWalkingAnimation() {
         this.playAnimation(this.Images_Walking);
     }

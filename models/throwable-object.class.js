@@ -1,9 +1,9 @@
 class ThrowableObject extends MovableObject {
-      /**
-     * Array von Bildpfaden für die Rotation der Flasche.
+    /**
+     * Array of image paths for the rotation of the bottle.
      * @type {string[]}
      */
-      IMAGES_BOTTLE = [
+    IMAGES_BOTTLE = [
         'img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png',
         'img/6_salsa_bottle/bottle_rotation/2_bottle_rotation.png',
         'img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png',
@@ -11,7 +11,7 @@ class ThrowableObject extends MovableObject {
     ];
 
     /**
-     * Array von Bildpfaden für die Flaschenspritzanimation.
+     * Array of image paths for the bottle splash animation.
      * @type {string[]}
      */
     IMAGES_BOTTLE_SPLASH = [
@@ -22,16 +22,16 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png',
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png',
     ];
-    
+
     world;
     splashOnTheGround = false;
     isSplashed = false;
 
     /**
-     * Erstellt eine neue ThrowableObject-Instanz.
+     * Creates a new ThrowableObject instance.
      * @constructor
-     * @param {number} x - Die X-Koordinate des werfbaren Objekts.
-     * @param {number} y - Die Y-Koordinate des werfbaren Objekts.
+     * @param {number} x - The X-coordinate of the throwable object.
+     * @param {number} y - The Y-coordinate of the throwable object.
      * 
      */
     constructor(x, y) {
@@ -47,7 +47,7 @@ class ThrowableObject extends MovableObject {
     }
 
     /**
-     * Animiert das werfbare Objekt und führt die entsprechenden Aktionen aus.
+     * Animates the throwable object and performs the corresponding actions.
      */
     animate() {
         setInterval(() => {
@@ -60,18 +60,18 @@ class ThrowableObject extends MovableObject {
     }
 
     /**
-     * Überprüft, ob die Flasche geworfen wurde.
-     * @returns {boolean} - True, wenn die Flasche geworfen wurde, sonst False.
+     * Checks if the bottle has been thrown.
+     * @returns {boolean} - True if the bottle has been thrown, otherwise False.
      */
     throwbottle() {
         return this.y >= 300;
     }
 
     /**
-     * Führt den Wurf der Flasche aus.
+     * Performs the throw of the bottle.
      */
     throw() {
-        this.speedY = 30; // Geschwindigkeit nach unten
+        this.speedY = 30; // Speed downwards
         this.applyGravity();
         setInterval(() => {
             this.x += 7;
@@ -79,7 +79,7 @@ class ThrowableObject extends MovableObject {
     }
 
     /**
-     * Animiert die Flaschenspritzanimation und ändert die Y-Geschwindigkeit.
+     * Animates the bottle splash animation and changes the Y-speed.
      */
     bottleSplashAnimation() {
         this.playAnimation(this.IMAGES_BOTTLE_SPLASH);
@@ -87,8 +87,8 @@ class ThrowableObject extends MovableObject {
     }
 
     /**
-     * Überprüft, ob die Flasche auf dem Boden ist.
-     * @returns {boolean} - True, wenn die Flasche auf dem Boden ist, sonst False.
+     * Checks if the bottle is on the ground.
+     * @returns {boolean} - True if the bottle is on the ground, otherwise False.
      */
     bottleIsOnTheGround() {
         return this.posY >= 80;

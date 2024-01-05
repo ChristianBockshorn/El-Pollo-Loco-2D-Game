@@ -1,7 +1,12 @@
+/**
+ * @class
+ * @classdesc This class represents a status bar for the end boss in the game.
+ * @extends DrawableObject
+ */
 class StatusBarEndboss extends DrawableObject {
     /**
-     * Array von Bildpfaden für verschiedene Gesundheitszustände des Endbosses.
-     * @type {string[]}
+     * @property {string[]} IMAGES_ENDBOSS_HEALTH - Array of image paths for different health states of the end boss.
+     * @property {number} percentage - The percentage value of the end boss's health.
      */
     IMAGES_ENDBOSS_HEALTH = [
         'img/7_statusbars/1_statusbar/2_statusbar_health/orange/0.png',
@@ -11,19 +16,14 @@ class StatusBarEndboss extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/orange/80.png',
         'img/7_statusbars/1_statusbar/2_statusbar_health/orange/100.png',
     ];
-
-    /**
-     * Der prozentuale Wert der Gesundheit des Endbosses.
-     * @type {number}
-     */
     percentage = 100;
 
     /**
-     * Erstellt eine neue StatusBarEndboss-Instanz.
+     * Creates a new StatusBarEndboss instance.
      * @constructor
      */
     constructor() {
-        super(); // Initialisiert Methoden von der Elternklasse.
+        super(); // Initializes methods from the parent class.
         this.loadImages(this.IMAGES_ENDBOSS_HEALTH);
         this.x = 500;
         this.y = 0;
@@ -33,8 +33,8 @@ class StatusBarEndboss extends DrawableObject {
     }
 
     /**
-     * Setzt den prozentualen Wert der Gesundheit und aktualisiert das angezeigte Bild.
-     * @param {number} percentage - Der prozentuale Wert der Gesundheit (0 bis 100).
+     * Sets the percentage value of health and updates the displayed image.
+     * @param {number} percentage - The percentage value of health (0 to 100).
      */
     setPercentage(percentage) {
         this.percentage = percentage;
@@ -43,8 +43,8 @@ class StatusBarEndboss extends DrawableObject {
     }
 
     /**
-     * Ermittelt den Index des Bildes basierend auf dem prozentualen Wert der Gesundheit.
-     * @returns {number} - Der Index des Bildes im IMAGES_ENDBOSS_HEALTH-Array.
+     * Determines the index of the image based on the percentage value of health.
+     * @returns {number} - The index of the image in the IMAGES_ENDBOSS_HEALTH array.
      */
     resolveImageIndex() {
         if (this.percentage === 100) {
