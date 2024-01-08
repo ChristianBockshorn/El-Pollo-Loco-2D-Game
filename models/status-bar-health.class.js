@@ -79,6 +79,5 @@ class StatusBarHealth extends DrawableObject {
      */
     checkCharacterEnergy() {
         this.percentage = 0;
-        console.log('Energy = 0', this.percentage);
     }
 }

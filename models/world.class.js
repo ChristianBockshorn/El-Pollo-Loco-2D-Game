@@ -12,13 +12,15 @@ class World {
      * The end boss of the current level.
      * @type {EndBoss}
      */
-    endboss = level1.endboss[0];
+
 
     /**
      * The current level configuration.
      * @type {Level}
      */
     level = level1;
+
+    levelBackground = level1.backgroundObject;
 
     /**
      * The 2D rendering context of the canvas.
@@ -117,6 +119,13 @@ class World {
     characterNotVulnerable = false;
 
     /**
+     * Audio object for losing sound.
+     * @type {Audio}
+     */
+    losing_sound = new Audio('audio/losing.mp3');
+
+
+    /**
      * Constructs a new World object.
      * @param {HTMLCanvasElement} canvas - The HTML canvas element.
      * @param {Keyboard} keyboard - The keyboard input manager.
@@ -136,6 +145,12 @@ class World {
     setWorld() {
         this.character.world = this;
     }
+
+    endbossInit() {
+        this.endboss = level1.endboss[0];
+
+    }
+
 
     /**
      * Initiates game loop intervals for collision checks and throwable object updates.
@@ -213,7 +228,6 @@ class World {
                     obj.kill();
                     obj.stopMoving();
                     this.checkIfEnemyIsDead(obj);
-                    console.log('chicken is killed!');
                 } else {
                     this.character.hit();
                     this.statusBarHealth.setPercentage(this.character.energy);
@@ -325,7 +339,6 @@ class World {
                     obj.kill();
                     obj.stopMoving();
                     this.checkIfChickenIsDead(obj);
-                    console.log('chicken is killed!');
                     bottle.bottleSplashAnimation();
                 }
             });
@@ -358,7 +371,7 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.camera_x, 0);
-        this.addObjectsToMap(this.level.backgroundObject);
+        this.addObjectsToMap(this.levelBackground);
         this.addToMap(this.character);
         this.addObjects();
         this.ctx.translate(-this.camera_x, 0);
@@ -456,4 +469,6 @@ class World {
             chicken.moving();
         })
     }
+
+
 }

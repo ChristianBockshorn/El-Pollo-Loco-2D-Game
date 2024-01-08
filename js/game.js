@@ -10,20 +10,26 @@ let startButton;
 let keyboard = new Keyboard();
 
 /**
+ * Starts the game.
+ */
+function startGame() {
+    
+    world.endbossInit();
+    world.movingChicken();
+    startScreen = document.getElementById('startScreen').classList.add('d-none');
+    world.losing_sound.pause();
+}
+
+/**
  * Initializes the game.
  */
 function init() {
     canvas = document.getElementById('canvas');
+    initLevel();
     world = new World(canvas, keyboard);
 }
 
-/**
- * Starts the game.
- */
-function startGame() {
-    world.movingChicken();
-    startScreen = document.getElementById('startScreen').classList.add('d-none');
-}
+
 
 /**
  * Restarts the game.
@@ -103,14 +109,17 @@ function endScreen() {
  * Toggles the audio on and off.
  */
 function audio() {
-    if (world.character.walking_sound.muted) {
+    if (world.character.walking_sound.muted ) {
         world.character.walking_sound.muted = false;
+        world.losing_sound.muted = false;
         document.getElementById('audioBtn').innerText = "volume_up";
     } else {
         world.character.walking_sound.muted = true;
+        world.losing_sound.muted = true;
         document.getElementById('audioBtn').innerText = "volume_off";
     }
 }
+
 
 /**
  * Event listener for keydown events.

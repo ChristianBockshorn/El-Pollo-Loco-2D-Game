@@ -32,10 +32,10 @@ class ChickenSmall extends MovableObject {
      * @property {number} right - Right offset.
      */
     offset = {
-        top: 0,
-        bottom: 0,
-        left: 10,
-        right: 10
+        top: 20,
+        bottom: -10,
+        left: 0,
+        right: 0
     };
 
     /**

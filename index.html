@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html translate="no">
-    
+
 
 <head>
     <meta charset="UTF-8">
@@ -11,26 +11,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="models/drawable-object.class.js"></script>
-    <script src="models/movable-object.class.js"></script>
-    <script src="models/chicken.class.js"></script>
-    <script src="models/chicken-small.class.js"></script>
-    <script src="models/character.class.js"></script>
-    <script src="models/cloud.class.js"></script>
-    <script src="models/status-bar-health.class.js"></script>
-    <script src="models/status-bar-endboss.class.js"></script>
-    <script src="models/status-bar-coins.class.js"></script>
-    <script src="models/status-bar-bottle.class.js"></script>
-    <script src="models/coins.class.js"></script>
-    <script src="models/bottles.class.js"></script>
-    <script src="models/world.class.js"></script>
-    <script src="models/background-object.class.js"></script>
-    <script src="models/keyboard.class.js"></script>
-    <script src="models/level.class.js"></script>
-    <script src="models/throwable-object.class.js"></script>
-    <script src="models/endboss.class.js"></script>
-    <script src="levels/level1.js"></script>
-    <script src="js/game.js"></script>
+    
+        <script src="models/drawable-object.class.js"></script>
+        <script src="models/movable-object.class.js"></script>
+        <script src="models/chicken.class.js"></script>
+        <script src="models/chicken-small.class.js"></script>
+        <script src="models/character.class.js"></script>
+        <script src="models/cloud.class.js"></script>
+        <script src="models/status-bar-health.class.js"></script>
+        <script src="models/status-bar-endboss.class.js"></script>
+        <script src="models/status-bar-coins.class.js"></script>
+        <script src="models/status-bar-bottle.class.js"></script>
+        <script src="models/coins.class.js"></script>
+        <script src="models/bottles.class.js"></script>
+        
+        <script src="models/background-object.class.js"></script>
+        <script src="models/keyboard.class.js"></script>
+        <script src="models/level.class.js"></script>
+        <script src="models/throwable-object.class.js"></script>
+        <script src="models/endboss.class.js"></script>
+        <script src="levels/level1.js"></script>
+        <script src="models/world.class.js"></script>
+        
+        <script src="js/game.js"></script>
+        
+    
+
 
 </head>
 
@@ -90,7 +96,7 @@
 
         </div>
 
-        <div class="end-screen d-none" id="endScreen" >
+        <div class="end-screen d-none" id="endScreen">
             <div class="end-screen-container-btn" onclick="doNotClosePopup(event)">
                 <div class="tooltip">
                     <span class="tooltiptext">Restart Game</span>
@@ -100,7 +106,7 @@
             </div>
         </div>
 
-        <div class="end-screen-win d-none" id="endScreenIfWin" >
+        <div class="end-screen-win d-none" id="endScreenIfWin">
             <div class="end-screen-container-btn" onclick="doNotClosePopup(event)">
                 <div class="tooltip">
                     <span class="tooltiptext">Restart Game</span>
@@ -113,4 +119,5 @@
         <canvas id="canvas" width="720" height="480"></canvas>
     </div>
 </body>
+
 </html>

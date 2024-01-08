@@ -6,8 +6,7 @@ class Character extends MovableObject {
     /**
      * Reference to the game world.
      * @type {World}
-     */
-    world;
+     */world;
         
     /**
      * Speed of the character.
@@ -30,17 +29,19 @@ class Character extends MovableObject {
      * @property {number} right - Right offset.
      */
     offset = {
-        top: 50,
-        bottom: 20,
-        left: 30,
-        right: 30,
+        top: 95,
+        bottom: -85,
+        left: -20,
+        right: 50,
     };
+
+    
        
     /**
      * Audio object for walking sound.
      * @type {Audio}
      */
-    walking_sound = new Audio('audio/running.mp3');
+    walking_sound = new Audio('audio/walking.mp3');
         
     /**
      * Array of image paths for walking animation.

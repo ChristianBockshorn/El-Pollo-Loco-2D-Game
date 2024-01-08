@@ -26,12 +26,18 @@ class Bottles extends MovableObject {
      * The offset of the bottle from the top, left, right, and bottom.
      * @type {Object}
      */
+    // offset = {
+    //     top: 20,
+    //     left: -40,
+    //     right: 70,
+    //     bottom: -20
+    // };
     offset = {
-        top: 0,
-        left: 60,
-        right: 0,
-        bottom: 0
-    };
+            top: 0,
+            left: 40,
+            right: 0,
+            bottom: 0
+        };
 
     /**
      * The images of the bottle.

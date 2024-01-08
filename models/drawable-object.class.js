@@ -1,21 +1,22 @@
-    /**
-     * @class DrawableObject
-     * @property {number} x - The x position
-     * @property {number} y - The y position
-     * @property {Image} img - The image
-     * @property {number} height - The height of the image
-     * @property {number} width - The width of the image
-     * @property {Array} imageCache - The cache for images
-     * @property {number} currentImage - The index of the current image
-     * @property {Object} offset - The offset values
-     * @property {number} offset.top - The top offset
-     * @property {number} offset.left - The left offset
-     * @property {number} offset.right - The right offset
-     * @property {number} offset.bottom - The bottom offset
-     */
+/**
+ * @class DrawableObject
+ * @property {number} x - The x position
+ * @property {number} y - The y position
+ * @property {Image} img - The image
+ * @property {number} height - The height of the image
+ * @property {number} width - The width of the image
+ * @property {Array} imageCache - The cache for images
+ * @property {number} currentImage - The index of the current image
+ * @property {Object} offset - The offset values
+ * @property {number} offset.top - The top offset
+ * @property {number} offset.left - The left offset
+ * @property {number} offset.right - The right offset
+ * @property {number} offset.bottom - The bottom offset
+ */
 class DrawableObject {
     x = 120;
     y = 250;
+    
     img;
     height = 200;
     width = 100;
@@ -28,7 +29,7 @@ class DrawableObject {
         bottom: 0
     };
 
-    
+
     /**
      * Load an image
      * @param {string} path - The path of the image
@@ -63,12 +64,15 @@ class DrawableObject {
         //     ctx.beginPath();
         //     ctx.lineWidth = '3';
         //     ctx.strokeStyle = 'red';
-        //     ctx.rect(this.x-this.offset.right, this.offset.top, this.offset.left, this.offset.bottom);
+            
+        //     ctx.rect(this.x - this.offset.left, this.y - this.offset.bottom, this.width - this.offset.right, this.height - this.offset.top);
+        //     // ctx.rect(this.x + this.width - this.offset.right, this.y + this.height - this.offset.bottom , this.x + this.offset.left, this.y + this.offset.top);
+
         //     ctx.stroke();
         // }
     }
 
-    
+
     /**
      * Load multiple images
      * @param {Array} arr - Array of image paths ['img/image1.png','img/image2.png', ...]

@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(img/background/desert4.jpg);
+    background-image: url(img/background/dessert3.jpeg);
     height: 100vh;
     max-width: 100vw;
     position: relative;
@@ -243,7 +243,7 @@ body {
     width: 720px;
     height: 480px;
     z-index: 999;
-    
+
 }
 
 .overlay-bg {
@@ -261,7 +261,7 @@ body {
     font-size: xxx-large;
 }
 
-.controls-container-separate{
+.controls-container-separate {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -272,7 +272,7 @@ canvas {
     background-color: black;
     border-radius: 20px;
     border: 5px solid #cf6b00b4;
-
+    display: block;
     box-shadow: 3px -1px 14px 6px #8f5f5c;
 }
 
@@ -300,3 +300,67 @@ h1 {
         height: 100vh;
     }
 }
+
+
+/* Smartphones, mein Bild dass du Bildschirm rotieren sollst */
+
+/* @media only screen and (max-width: 740px) {
+    body {
+        position: block;
+        z-index: 1000;
+        background-image: url('img/background/phoneRotate.png');
+        background-color: rgba(0, 0, 0, 0.774);
+        background-repeat: no-repeat;
+        background-position: center top;
+        width: 100%;
+        height: 100%;
+    }
+
+    canvas {
+        display: none !important;
+        /* need it so canvas doesn#t overlay on "Please turn your mobile screen" 
+    }
+
+    h1,
+    p {
+        display: none;
+    }
+
+    #startScreen,
+    #endScreen {
+        display: none;
+    }
+} */
+
+/* Smartphones */
+
+/* @media only screen and (max-height: 375px) {
+    body {
+        overflow: hidden;
+
+    }
+
+    canvas {
+        height: 100vh;
+        position: fixed;
+        /* Die folgenden 6 Elemente sind Schlüssel für den mobilen Fullscreen
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #startScreen {
+        height: 100vh;
+    }
+
+
+
+    body {
+        background-image: none;
+        background-color: black;
+    }
+
+} 
+*/ 

@@ -32,6 +32,12 @@ class MovableObject extends DrawableObject {
     };
     collectedCoins = 0;
     collectedBottles = 0;
+    /**
+     * Audio object for losing sound.
+     * @type {Audio}
+     */
+    losing_sound = new Audio('audio/losing.mp3');
+
 
     /**
     * Applies gravity to the object.
@@ -132,12 +138,9 @@ class MovableObject extends DrawableObject {
      * Checks if the character is in alert range.
      * @returns {boolean} True if the character is in alert range, false otherwise.
      */
-    seeCharacterAlert() {
-        return (
-            world.character.x >= 1450 && world.character.x < 1475
-        );
+    seeCharacterThanAlert() {
+        return world.character.x >= 1450 && world.character.x < 1475
     }
-
 
     /**
      * Checks if the character is in attack range.
@@ -202,11 +205,12 @@ class MovableObject extends DrawableObject {
      * Stops the game.
      */
     stopGame() {
-        if (world.character.energy == 0) {//Wenn man verliert
+        if (world.character.energy == 0) {
             document.getElementById('endScreen').classList.remove('d-none');
             this.clearWorldLevelIntervalls();
             this.stopGameIntervall();
-        } else if (this.animationEnded = true) {//wenn man gewinnt
+            world.losing_sound.play();
+        } else if (this.animationEnded = true) {
             document.getElementById('endScreenIfWin').classList.remove('d-none');
             this.clearWorldLevelIntervalls();
             this.stopGameIntervall();

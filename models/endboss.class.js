@@ -12,10 +12,13 @@
  * @property {string[]} Images_Dead - The array of image paths for the dead animation.
  */
 class Endboss extends MovableObject {
+    character;
+    world;
     y = 80;
     height = 400;
     width = 230;
     animationEnded = false;
+
 
     Images_Walking = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -87,7 +90,7 @@ class Endboss extends MovableObject {
                 this.speed = 20;
                 this.playAnimation(this.Images_Hurt);
                 this.playAnimation(this.Images_Walking);
-            } else if (this.seeCharacterAlert()) {
+            } else if (this.seeCharacterThanAlert()) {
                 this.playAnimation(this.Images_Alert);
             } else if (this.seeCharacterAttack()) {
                 this.playAnimation(this.Images_Attack);
@@ -106,12 +109,3 @@ class Endboss extends MovableObject {
         this.stopGame();
     }
 }
-
-
-
-
-
-
-
-
-
