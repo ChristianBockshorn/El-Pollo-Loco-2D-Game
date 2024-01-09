@@ -214,6 +214,7 @@ class World {
         this.checkCollisionsEnemies();
         this.checkCollisionsCoins();
         this.checkCollisionsBottle();
+        this.checkCollisionsEndboss();
         this.checkCollisionsBottleWithEndboss();
         this.checkCollisionsBottleWithEnemies();
     };
@@ -223,6 +224,24 @@ class World {
      */
     checkCollisionsEnemies() {
         this.level.enemies.forEach((obj) => {
+            if (this.character.isColliding(obj) && !obj.isDead()) {
+                if (this.character.isAboveGround() && !this.character.isHurt()) {
+                    obj.kill();
+                    obj.stopMoving();
+                    this.checkIfEnemyIsDead(obj);
+                } else {
+                    this.character.hit();
+                    this.statusBarHealth.setPercentage(this.character.energy);
+                }
+            }
+        });
+    }
+
+      /**
+     * Checks for collisions between the character and Endboss, handles enemy interactions.
+     */
+      checkCollisionsEndboss() {
+        this.level.endboss.forEach((obj) => {
             if (this.character.isColliding(obj) && !obj.isDead()) {
                 if (this.character.isAboveGround() && !this.character.isHurt()) {
                     obj.kill();

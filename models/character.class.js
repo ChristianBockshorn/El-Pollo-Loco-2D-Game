@@ -41,7 +41,7 @@ class Character extends MovableObject {
      * Audio object for walking sound.
      * @type {Audio}
      */
-    walking_sound = new Audio('audio/walking.mp3');
+    walking_sound = new Audio('audio/running.mp3');
         
     /**
      * Array of image paths for walking animation.
