@@ -1,12 +1,9 @@
-
-
 /* Smartphones, mein Bild dass du Bildschirm rotieren sollst*/
 
 @media only screen and (max-width: 720px) {
     body {
-        position: block;
-        height: 0;
-        z-index: 1000;
+
+        height: 100%;
         background-image: url('img/background/phoneRotate.png');
         background-position: top center;
         overflow: hidden;
@@ -15,10 +12,11 @@
     canvas {
         display: none !important;
         /* need it so canvas doesn#t overlay on "Please turn your mobile screen" */
-        background-color: none;
+        
         border-radius: none;
         border: none;
         box-shadow: none;
+
     }
 
     h1,
@@ -26,8 +24,21 @@
         display: none;
     }
 
-    #startScreen {
+    .start-screen,
+    .end-screen 
+    .end-screen-win {
+        width: 100%;
+        height: 100%;
+        background-color: none;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    .start-screen,
+    .end-screen {
         display: none;
+
     }
 }
 
@@ -36,29 +47,39 @@
 @media only screen and (max-height: 480px) {
     body {
         overflow: hidden;
+        margin: 0;
     }
 
-    
-
-    .start-screen {
+    .start-screen,
+    .end-screen,
+    .end-screen-win {
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        background-color: none;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
     }
 
     canvas {
         height: 100vh;
-        position: fixed;
-        /* Die folgenden 6 Elemente sind Schlüssel für den mobilen Fullscreen*/
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
         width: 100%;
+        
 
         background-color: black;
         border-radius: 0;
         border: none;
         box-shadow: none;
+        overflow: hidden;
+    }
+
+    h1,
+    p {
+        display: none;
     }
 
 }

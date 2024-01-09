@@ -124,6 +124,12 @@ class World {
      */
     losing_sound = new Audio('audio/losing.mp3');
 
+    /**
+     * Audio object for walking sound.
+     * @type {Audio}
+     */
+    walking_sound = new Audio('audio/walking.mp3');
+
 
     /**
      * Constructs a new World object.

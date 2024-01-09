@@ -109,12 +109,12 @@ function endScreen() {
  * Toggles the audio on and off.
  */
 function audio() {
-    if (world.character.walking_sound.muted ) {
-        world.character.walking_sound.muted = false;
+    if (world.walking_sound.muted ) {
+        world.walking_sound.muted = false;
         world.losing_sound.muted = false;
         document.getElementById('audioBtn').innerText = "volume_up";
     } else {
-        world.character.walking_sound.muted = true;
+        world.walking_sound.muted = true;
         world.losing_sound.muted = true;
         document.getElementById('audioBtn').innerText = "volume_off";
     }

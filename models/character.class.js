@@ -37,11 +37,7 @@ class Character extends MovableObject {
 
     
        
-    /**
-     * Audio object for walking sound.
-     * @type {Audio}
-     */
-    walking_sound = new Audio('audio/running.mp3');
+    
         
     /**
      * Array of image paths for walking animation.
@@ -160,7 +156,7 @@ class Character extends MovableObject {
      * Handles character movement.
      */
     characterMoving() {
-        this.walking_sound.pause();
+        world.walking_sound.pause();
         if (this.canMoveRight()) {//X-koordinate erhöhen
             this.moveRight();
         }
@@ -187,7 +183,7 @@ class Character extends MovableObject {
     moveRight() {
         super.moveRight();
         this.otherDirection = false;
-        this.walking_sound.play();
+        world.walking_sound.play();
     }
 
     /**
@@ -204,7 +200,7 @@ class Character extends MovableObject {
     moveLeft() {
         super.moveLeft();
         this.otherDirection = true;
-        this.walking_sound.play();
+        world.walking_sound.play();
     }
 
     /**
