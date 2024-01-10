@@ -7,13 +7,15 @@
 let canvas;
 let world;
 let startButton;
-let keyboard = new Keyboard();
+let keyboard;
+
+
+
 
 /**
  * Starts the game.
  */
 function startGame() {
-    
     world.endbossInit();
     world.movingChicken();
     startScreen = document.getElementById('startScreen').classList.add('d-none');
@@ -26,10 +28,9 @@ function startGame() {
 function init() {
     canvas = document.getElementById('canvas');
     initLevel();
+    keyboard = new Keyboard();
     world = new World(canvas, keyboard);
 }
-
-
 
 /**
  * Restarts the game.
@@ -109,7 +110,7 @@ function endScreen() {
  * Toggles the audio on and off.
  */
 function audio() {
-    if (world.walking_sound.muted ) {
+    if (world.walking_sound.muted) {
         world.walking_sound.muted = false;
         world.losing_sound.muted = false;
         document.getElementById('audioBtn').innerText = "volume_up";
@@ -121,60 +122,17 @@ function audio() {
 }
 
 
-/**
- * Event listener for keydown events.
- */
-window.addEventListener("keydown", (e) => {
-    if (e.keyCode == 37) {
-        keyboard.LEFT = true;
-    }
 
-    if (e.keyCode == 39) {
-        keyboard.RIGHT = true;
-    }
 
-    if (e.keyCode == 38) {
-        keyboard.UP = true;
-    }
 
-    if (e.keyCode == 40) {
-        keyboard.DOWN = true;
-    }
+    
 
-    if (e.keyCode == 32) {
-        keyboard.SPACE = true;
-    }
 
-    if (e.keyCode == 68) {
-        keyboard.D = true;
-    }
-});
 
-/**
- * Event listener for keyup events.
- */
-window.addEventListener("keyup", (e) => {
-    if (e.keyCode == 37) {
-        keyboard.LEFT = false;
-    }
 
-    if (e.keyCode == 39) {
-        keyboard.RIGHT = false;
-    }
 
-    if (e.keyCode == 38) {
-        keyboard.UP = false;
-    }
 
-    if (e.keyCode == 40) {
-        keyboard.DOWN = false;
-    }
 
-    if (e.keyCode == 32) {
-        keyboard.SPACE = false;
-    }
 
-    if (e.keyCode == 68) {
-        keyboard.D = false;
-    }
-});
+
+

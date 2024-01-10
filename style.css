@@ -287,16 +287,5 @@ h1 {
 
 }
 
-.overlay{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    
-}
 
-.pannelSound{
-    margin-top: 15px;
-    margin-left: 687px;
-}
+

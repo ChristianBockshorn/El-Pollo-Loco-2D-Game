@@ -8,11 +8,7 @@ class World {
    */
     character = new Character();
 
-    /**
-     * The end boss of the current level.
-     * @type {EndBoss}
-     */
-
+    keyboard;
 
     /**
      * The current level configuration.
@@ -131,6 +127,8 @@ class World {
     walking_sound = new Audio('audio/walking.mp3');
 
 
+
+
     /**
      * Constructs a new World object.
      * @param {HTMLCanvasElement} canvas - The HTML canvas element.
@@ -154,7 +152,6 @@ class World {
 
     endbossInit() {
         this.endboss = level1.endboss[0];
-
     }
 
 
@@ -243,10 +240,10 @@ class World {
         });
     }
 
-      /**
-     * Checks for collisions between the character and Endboss, handles enemy interactions.
-     */
-      checkCollisionsEndboss() {
+    /**
+   * Checks for collisions between the character and Endboss, handles enemy interactions.
+   */
+    checkCollisionsEndboss() {
         this.level.endboss.forEach((obj) => {
             if (this.character.isColliding(obj) && !obj.isDead()) {
                 if (this.character.isAboveGround() && !this.character.isHurt()) {
