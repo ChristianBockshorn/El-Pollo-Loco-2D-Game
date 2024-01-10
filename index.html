@@ -92,6 +92,11 @@
                     <span class="material-symbols-outlined c-white" class="start-btn" id="start-btn"
                         onclick="restart()">play_circle</span>
                 </div>
+                <div class="tooltip">
+                    <span class="tooltiptext">Volume</span>
+                    <span class="material-symbols-outlined audioInGame" class="start-btn" style="color: white;" id="audioInGameBtn"
+                        onclick="audioInGame()">volume_up</span>
+                </div>
             </div>
         </div>
 
@@ -105,27 +110,33 @@
             </div>
         </div>
 
-        
-        
+
+
         <div id="mobile_buttons" class="mobile d-none">
             <div class="moveButtons">
-                <button id="leftBtn">
-                    <img class="moveButtons-widthHeight" src="img/buttons/left.png">
-                </button>
-                <button id="rightBtn">
-                    <img class="moveButtons-widthHeight" src="img/buttons/right.png">
-                </button>
+                <span id="leftBtn" class="material-symbols-outlined">
+                    arrow_circle_left
+                </span>
+
+                <span id="rightBtn" class="material-symbols-outlined">
+                    arrow_circle_right
+                </span>
             </div>
+
+            <span class="material-symbols-outlined audioInGame" class="start-btn" id="audioInGameBtn"
+                onclick="audioInGame()">volume_up</span>
+
             <div class="jump_and_throw">
-                <button id="jumpBtn">
-                    <img class="moveButtons-widthHeight" src="img/buttons/jump.png">
-                </button>
-                <button  id="throwBtn">
-                    <img class="moveButtons-widthHeight" src="img/buttons/throw.png">
-                </button>
+
+                <span id="jumpBtn" class="material-symbols-outlined">
+                    arrow_circle_up
+                </span>
+
+                <img id="throwBtn" class="moveButtons-widthHeight" src="img/buttons/throw.png">
+
             </div>
         </div>
-       
+
 
         <canvas id="canvas" width="720" height="480"></canvas>
 

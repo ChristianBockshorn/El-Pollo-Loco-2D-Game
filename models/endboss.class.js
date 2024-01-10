@@ -19,6 +19,13 @@ class Endboss extends MovableObject {
     width = 230;
     animationEnded = false;
 
+    offset = {
+        top: 85,
+        bottom: -85,
+        left: -20,
+        right: 50,
+    };
+
 
     Images_Walking = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -87,7 +94,7 @@ class Endboss extends MovableObject {
         } else if (!this.animationEnded) {
             if (this.isHurt()) {
                 this.moveLeft();
-                this.speed = 20;
+                this.speed = 12;
                 this.playAnimation(this.Images_Hurt);
                 this.playAnimation(this.Images_Walking);
             } else if (this.seeCharacterThanAlert()) {

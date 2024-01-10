@@ -185,22 +185,7 @@ class World {
             this.hasThrown = false;
         }
     }
-
-    // run() {
-    //     setInterval(() => {
-    //         this.checkCollisions();
-    //         this.checkthrowObjects();
-    //     }, 200);
-    // }
-
-    // checkthrowObjects() {
-    //     if (this.keyboard.D && this.collectedBottles > 0) {
-    //         this.collectedBottles--;
-    //         let bottle = new ThrowableObject(this.character.x + 50, this.character.y + 100) //Position, wo die Flasche aus den Händen geworfen wird 
-    //         this.throwableObjects.push(bottle);
-    //         this.reduceBottleByThrowing();
-    //     }
-    // }
+   
 
     /**
      * Reduces the collected bottles by one and updates the bottle status bar.

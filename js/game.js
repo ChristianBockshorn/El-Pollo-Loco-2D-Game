@@ -19,6 +19,8 @@ function startGame() {
     world.endbossInit();
     world.movingChicken();
     startScreen = document.getElementById('startScreen').classList.add('d-none');
+    document.getElementById('mobile_buttons').classList.remove("d-none");
+    document.getElementById('audioInGameBtn').classList.add("d-none");
     world.losing_sound.pause();
 }
 
@@ -110,6 +112,21 @@ function endScreen() {
  * Toggles the audio on and off.
  */
 function audio() {
+    if (world.walking_sound.muted) {
+        world.walking_sound.muted = false;
+        world.losing_sound.muted = false;
+        document.getElementById('audioBtn').innerText = "volume_up";
+    } else {
+        world.walking_sound.muted = true;
+        world.losing_sound.muted = true;
+        document.getElementById('audioBtn').innerText = "volume_off";
+    }
+}
+
+/**
+ * Toggles the audio on and off.
+ */
+function audioInGame() {
     if (world.walking_sound.muted) {
         world.walking_sound.muted = false;
         world.losing_sound.muted = false;

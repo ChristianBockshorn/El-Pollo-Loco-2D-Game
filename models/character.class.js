@@ -29,7 +29,7 @@ class Character extends MovableObject {
      * @property {number} right - Right offset.
      */
     offset = {
-        top: 95,
+        top: 85,
         bottom: -85,
         left: -20,
         right: 50,
