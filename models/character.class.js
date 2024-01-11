@@ -34,10 +34,6 @@ class Character extends MovableObject {
         left: -20,
         right: 50,
     };
-
-    
-       
-    
         
     /**
      * Array of image paths for walking animation.

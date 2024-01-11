@@ -8,14 +8,16 @@ class World {
    */
     character = new Character();
 
-    keyboard;
-
     /**
      * The current level configuration.
      * @type {Level}
      */
     level = level1;
 
+    /**
+     * The levelBackground configuration.
+     * @type {Level}
+     */
     levelBackground = level1.backgroundObject;
 
     /**
@@ -476,6 +478,4 @@ class World {
             chicken.moving();
         })
     }
-
-
 }

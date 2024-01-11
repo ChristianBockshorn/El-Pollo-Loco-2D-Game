@@ -287,5 +287,12 @@ h1 {
 
 }
 
-
-
+.audioGame {
+    display: flex;
+    justify-content: unset;
+    align-items: center;
+    margin-top: -50px;
+    position: fixed;
+    bottom: 10px;
+    z-index: 99;
+}

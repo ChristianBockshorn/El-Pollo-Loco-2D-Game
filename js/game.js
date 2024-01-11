@@ -10,8 +10,6 @@ let startButton;
 let keyboard;
 
 
-
-
 /**
  * Starts the game.
  */
@@ -137,19 +135,3 @@ function audioInGame() {
         document.getElementById('audioBtn').innerText = "volume_off";
     }
 }
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-

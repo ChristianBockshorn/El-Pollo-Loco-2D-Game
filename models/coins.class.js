@@ -39,12 +39,6 @@ class Coins extends MovableObject {
      * The offset of the coin from the top, left, right, and bottom.
      * @type {Object}
      */
-    // offset = {
-    //     top: 70,
-    //     left: -35,
-    //     right: 70,
-    //     bottom: -35
-    // };
     offset = {
         top: 0,
         left: 40,
